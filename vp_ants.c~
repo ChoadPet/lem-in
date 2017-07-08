@@ -1,0 +1,4 @@
+void	fck_ants(t_skrr *skrr, char **line)
+{
+
+}
