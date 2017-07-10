@@ -298,7 +298,13 @@
 		<Unit filename="/nfs/2016/v/vpoltave/lem-in/libft/src/libft/ft_toupper.c">
 			<Option target="lem_in"/>
 		</Unit>
+		<Unit filename="/nfs/2016/v/vpoltave/lem-in/src/debrec.c">
+			<Option target="lem_in"/>
+		</Unit>
 		<Unit filename="/nfs/2016/v/vpoltave/lem-in/src/main.c">
+			<Option target="lem_in"/>
+		</Unit>
+		<Unit filename="/nfs/2016/v/vpoltave/lem-in/src/validation.c">
 			<Option target="lem_in"/>
 		</Unit>
 		<Unit filename="/nfs/2016/v/vpoltave/lem-in/src/vp_ants.c">

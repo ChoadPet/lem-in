@@ -334,7 +334,15 @@ string.h
 ../get_next_line/get_next_line.h
 /nfs/2016/v/vpoltave/lem-in/libft/src/get_next_line/get_next_line.h
 
+/nfs/2016/v/vpoltave/lem-in/src/debrec.c
+
 /nfs/2016/v/vpoltave/lem-in/src/main.c
+stdio.h
+-
+../includes/lem_in.h
+/nfs/2016/v/vpoltave/lem-in/includes/lem_in.h
+
+/nfs/2016/v/vpoltave/lem-in/src/validation.c
 ../includes/lem_in.h
 /nfs/2016/v/vpoltave/lem-in/includes/lem_in.h
 

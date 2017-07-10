@@ -325,11 +325,19 @@ CMakeFiles/lem_in.dir/libft/src/libft/ft_tolower.c.o: ../libft/src/libft/ft_tolo
 
 CMakeFiles/lem_in.dir/libft/src/libft/ft_toupper.c.o: ../libft/src/libft/ft_toupper.c
 
+CMakeFiles/lem_in.dir/src/debrec.c.o: ../src/debrec.c
+
 CMakeFiles/lem_in.dir/src/main.c.o: ../includes/lem_in.h
 CMakeFiles/lem_in.dir/src/main.c.o: ../libft/src/ft_printf/ft_printf.h
 CMakeFiles/lem_in.dir/src/main.c.o: ../libft/src/get_next_line/get_next_line.h
 CMakeFiles/lem_in.dir/src/main.c.o: ../libft/src/libft/libft.h
 CMakeFiles/lem_in.dir/src/main.c.o: ../src/main.c
+
+CMakeFiles/lem_in.dir/src/validation.c.o: ../includes/lem_in.h
+CMakeFiles/lem_in.dir/src/validation.c.o: ../libft/src/ft_printf/ft_printf.h
+CMakeFiles/lem_in.dir/src/validation.c.o: ../libft/src/get_next_line/get_next_line.h
+CMakeFiles/lem_in.dir/src/validation.c.o: ../libft/src/libft/libft.h
+CMakeFiles/lem_in.dir/src/validation.c.o: ../src/validation.c
 
 CMakeFiles/lem_in.dir/src/vp_ants.c.o: ../includes/lem_in.h
 CMakeFiles/lem_in.dir/src/vp_ants.c.o: ../libft/src/ft_printf/ft_printf.h

@@ -10,23 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "../includes/lem_in.h"
 
 int main()
 {
 	char 	*line;
 	t_skrr	skrr;
+	t_room	*head;
 	int		fd;
 
-	clear_func(&skrr);
-	fd = open("test_1", O_RDONLY);
-	if (fd < 0)
-		perror("fd error");
+	fd = open("test_2", O_RDONLY);
+	(fd < 0) ? perror("fd error") : 0;
+	init_func(&skrr, &head);
 	while (get_next_line(fd, &line) > 0)
 	{
-		(skrr.flag_an == 0) ? basic_info(&skrr, &line) : 0;
-		(skrr.flag_an == -1) ? fck_ants(&skrr, &line) : 0;
+
+		if (skrr.flag_an == 0)
+			if (basic_info(&skrr, &head, &line) == -1)
+				return (oops_error());
+		if (skrr.flag_an == -1)
+			if (fck_ants(&skrr, &line) == -1)
+				return (oops_error());
 	}
+	print_lists(head);
+	print_s_e(&skrr);
 	close (fd);
 	return 0;
 }

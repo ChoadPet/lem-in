@@ -12,53 +12,37 @@
 
 #include "../includes/lem_in.h"
 
-void	init_func(t_skrr *skrr, t_room **head)
+int 	oops_error()
 {
-	skrr->flag_an = -1;
-	skrr->start = 0;
-	skrr->end = 0;
-	skrr->for_start = 0;
-	skrr->for_end = 0;
-	skrr->start_room = NULL;
-	skrr->end_room = NULL;
-	*head = NULL;
+	ft_putstr("ERROR\n");
+	return (-1);
 }
 
-char 	*get_name(char *line)
+int 	two_spaces(char *line)
 {
-	char	*name;
-	size_t 	i;
+	int spaces;
+	int wrong_name;
 
-	i = 0;
-	while ((*line) && (*line != ' '))
+	wrong_name = 0;
+	spaces = 0;
+	while (*line)
 	{
+		if (line[0] == 'L' || line[0] == '#')
+			wrong_name++;
+		if (*line == ' ')
+			spaces++;
 		line++;
-		i++;
 	}
-	name = ft_strnew(i);
-	ft_strncpy(name, line - i, i);
-	return (name);
+	if (spaces == 2 && wrong_name == 0)
+		return (0);
+	else
+		return (1);
 }
 
-int 	x_y_coord(char *line, int is_x)
+int 	two_start(t_skrr *skrr)
 {
-	int	x;
-	int y;
-
-	if (is_x)
-	{
-		while ((*line) && *line != ' ')
-			(line)++;
-		x = ft_atoi(line);
-		return (x);
-	}
+	if (skrr->start > 1 || skrr->end > 1)
+		return (1);
 	else
-	{
-		while (*line)
-			(line)++;
-		while (*line != ' ')
-			line--;
-		y = ft_atoi(line);
-		return (y);
-	}
+		return (0);
 }

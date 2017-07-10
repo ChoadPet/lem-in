@@ -15,7 +15,9 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT = 	./libft/libft.a
 OBJECTS =	./src/main.o					\
-            ./src/vp_ants.o                \
+            ./src/vp_ants.o                 \
+            ./src/vp_useful.o               \
+            ./src/vp_useful_2.o             \
 
 .PHONY: libft
 

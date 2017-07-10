@@ -1986,6 +1986,33 @@ libft/src/libft/ft_toupper.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/libft/src/libft/ft_toupper.c.s
 .PHONY : libft/src/libft/ft_toupper.c.s
 
+src/debrec.o: src/debrec.c.o
+
+.PHONY : src/debrec.o
+
+# target to build an object file
+src/debrec.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/debrec.c.o
+.PHONY : src/debrec.c.o
+
+src/debrec.i: src/debrec.c.i
+
+.PHONY : src/debrec.i
+
+# target to preprocess a source file
+src/debrec.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/debrec.c.i
+.PHONY : src/debrec.c.i
+
+src/debrec.s: src/debrec.c.s
+
+.PHONY : src/debrec.s
+
+# target to generate assembly for a file
+src/debrec.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/debrec.c.s
+.PHONY : src/debrec.c.s
+
 src/main.o: src/main.c.o
 
 .PHONY : src/main.o
@@ -2012,6 +2039,33 @@ src/main.s: src/main.c.s
 src/main.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/main.c.s
 .PHONY : src/main.c.s
+
+src/validation.o: src/validation.c.o
+
+.PHONY : src/validation.o
+
+# target to build an object file
+src/validation.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/validation.c.o
+.PHONY : src/validation.c.o
+
+src/validation.i: src/validation.c.i
+
+.PHONY : src/validation.i
+
+# target to preprocess a source file
+src/validation.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/validation.c.i
+.PHONY : src/validation.c.i
+
+src/validation.s: src/validation.c.s
+
+.PHONY : src/validation.s
+
+# target to generate assembly for a file
+src/validation.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/validation.c.s
+.PHONY : src/validation.c.s
 
 src/vp_ants.o: src/vp_ants.c.o
 
@@ -2310,9 +2364,15 @@ help:
 	@echo "... libft/src/libft/ft_toupper.o"
 	@echo "... libft/src/libft/ft_toupper.i"
 	@echo "... libft/src/libft/ft_toupper.s"
+	@echo "... src/debrec.o"
+	@echo "... src/debrec.i"
+	@echo "... src/debrec.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/validation.o"
+	@echo "... src/validation.i"
+	@echo "... src/validation.s"
 	@echo "... src/vp_ants.o"
 	@echo "... src/vp_ants.i"
 	@echo "... src/vp_ants.s"
