@@ -46,3 +46,21 @@ int 	two_start(t_skrr *skrr)
 	else
 		return (0);
 }
+
+int		what_is_next(t_skrr *skrr, char **line, int start)
+{
+	if (start)
+	{
+		if (get_next_line(g_fd, line) > 0)
+			if (!(ft_strcmp("##end", *line)) || !(ft_strcmp("##start", *line)))
+				return (-1);
+		skrr->start++;
+	}
+	else
+	{
+		if (get_next_line(g_fd, line) > 0)
+			if (!(ft_strcmp("##end", *line)) || !(ft_strcmp("##start", *line)))
+				return (-1);
+		skrr->end++;
+	}
+}

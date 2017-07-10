@@ -22,3 +22,15 @@
 //	}
 //	return (1);
 //}
+
+//void	print_s_e(t_skrr *skrr)
+//{
+//	ft_printf("----------------------------------\n");
+//	ft_printf("%s", skrr->start_room->name);
+//	ft_printf(" %d", skrr->start_room->x_coord);
+//	ft_printf(" %d\n", skrr->start_room->y_coord);
+//	ft_printf("----------------------------------\n");
+//	ft_printf("%s", skrr->end_room->name);
+//	ft_printf(" %d", skrr->end_room->x_coord);
+//	ft_printf(" %d\n", skrr->end_room->y_coord);
+//}

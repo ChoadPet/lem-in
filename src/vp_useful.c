@@ -22,6 +22,7 @@ void	init_func(t_skrr *skrr, t_room **head)
 	skrr->start_room = NULL;
 	skrr->end_room = NULL;
 	*head = NULL;
+	g_info = NULL;
 }
 
 char 	*get_name(char *line)
@@ -60,5 +61,17 @@ int 	x_y_coord(char *line, int is_x)
 			line--;
 		y = ft_atoi(line);
 		return (y);
+	}
+}
+
+void	print_lists(t_info *head)
+{
+	t_info *current;
+
+	current = head;
+	while (current != NULL)
+	{
+		printf("%s\n", current->info);
+		current = current->next;
 	}
 }

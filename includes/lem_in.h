@@ -58,19 +58,21 @@ typedef struct		s_skrr
 */
 
 t_info				*g_info;
+int 				g_fd;
 
 int					fck_ants(t_skrr *skrr, char **line);
 int					oops_error(void);
 int					basic_info(t_skrr *skrr, t_room **head, char **line);
 int					push_to_beg(t_room **head, char **line);
+int 				push_to_end(char **line);
 void				init_func(t_skrr *skrr, t_room **head);
 char 				*get_name(char *line);
 int 				x_y_coord(char *line, int is_x);
 int 				two_spaces(char *line);
 int 				two_start(t_skrr *skrr);
+int					what_is_next(t_skrr *skrr, char **line, int start);
 
 //tmp fucntions
-void	print_lists(t_room *head);
-void	print_s_e(t_skrr *skrr);
+void	print_lists(t_info *head);
 
 #endif

@@ -18,7 +18,6 @@ int 	fck_ants(t_skrr *skrr, char **line)
 	if (skrr->ants < 0)
 		return (-1);
 	skrr->flag_an = 0;
-	ft_printf("%d\n", skrr->ants);
 	return (1);
 }
 
@@ -26,15 +25,11 @@ int 	fck_ants(t_skrr *skrr, char **line)
 int 	basic_info(t_skrr *skrr, t_room **head, char **line)
 {
 	if (!(ft_strcmp("##start", *line)))
-	{
-		skrr->start++;
-		return (1);
-	}
+		if (what_is_next(skrr, line, 1) == -1)
+			return (-1);
 	if (!(ft_strcmp("##end", *line)))
-	{
-		skrr->end++;
-		return (1);
-	}
+		if (what_is_next(skrr, line, 0) == -1)
+			return (-1);
 	if (two_spaces(*line))
 		return (-1);
 	else if (two_start(skrr))
@@ -62,28 +57,24 @@ int		push_to_beg(t_room **head, char **line)
 	return (1);
 }
 
-void	print_lists(t_room *head)
-{
-	t_room *current;
 
-	current = head;
-	while (current != NULL)
+int 	push_to_end(char **line)
+{
+	t_info *new_room;
+	t_info *current;
+
+	if (!(new_room = (t_info *)malloc(sizeof(t_info))))
+		return (-2);
+	new_room->info = ft_strdup(*line);
+	new_room->next = NULL;
+	if (g_info == NULL)
+		g_info = new_room;
+	else
 	{
-		printf("%s ", current->name);
-		printf("%d ", current->x_coord);
-		printf("%d\n", current->y_coord);
-		current = current->next;
+		current = g_info;
+		while (current->next != NULL)
+			current = current->next;
+		current->next = new_room;
 	}
-}
-
-void	print_s_e(t_skrr *skrr)
-{
-	ft_printf("----------------------------------\n");
-	ft_printf("%s", skrr->start_room->name);
-	ft_printf(" %d", skrr->start_room->x_coord);
-	ft_printf(" %d\n", skrr->start_room->y_coord);
-	ft_printf("----------------------------------\n");
-	ft_printf("%s", skrr->end_room->name);
-	ft_printf(" %d", skrr->end_room->x_coord);
-	ft_printf(" %d\n", skrr->end_room->y_coord);
+	return (1);
 }
