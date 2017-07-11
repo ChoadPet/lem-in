@@ -19,6 +19,8 @@ void	init_func(t_skrr *skrr, t_room **head)
 	skrr->end = 0;
 	skrr->for_start = 0;
 	skrr->for_end = 0;
+	skrr->comment_s = 0;
+	skrr->comment_e = 0;
 	skrr->start_room = NULL;
 	skrr->end_room = NULL;
 	*head = NULL;
@@ -71,7 +73,7 @@ void	print_lists(t_info *head)
 	current = head;
 	while (current != NULL)
 	{
-		printf("%s\n", current->info);
+		ft_printf("%s\n", current->info);
 		current = current->next;
 	}
 }

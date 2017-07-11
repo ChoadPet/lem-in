@@ -51,16 +51,28 @@ int		what_is_next(t_skrr *skrr, char **line, int start)
 {
 	if (start)
 	{
+		skrr->start++;
 		if (get_next_line(g_fd, line) > 0)
 			if (!(ft_strcmp("##end", *line)) || !(ft_strcmp("##start", *line)))
-				return (-1);
-		skrr->start++;
+				return (0);
+		if (!need_it(line, skrr))
+			return (0);
+		if ((**line == '#') && (skrr->comment_s = 1))
+			return (1);
+		push_to_end(line);
+		return (1);
 	}
 	else
 	{
+		skrr->end++;
 		if (get_next_line(g_fd, line) > 0)
 			if (!(ft_strcmp("##end", *line)) || !(ft_strcmp("##start", *line)))
-				return (-1);
-		skrr->end++;
+				return (0);
+		if (!need_it(line, skrr))
+			return (0);
+		if ((**line == '#') && (skrr->comment_e = 1))
+			return (1);
+		push_to_end(line);
+		return (1);
 	}
 }

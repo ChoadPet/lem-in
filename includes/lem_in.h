@@ -49,6 +49,9 @@ typedef struct		s_skrr
 	int 			end;
 	int 			for_start;
 	int 			for_end;
+	int 			comment_s;
+	int 			comment_e;
+	int 			first_time;
 	t_room			*start_room;
 	t_room			*end_room;
 }					t_skrr;
@@ -71,6 +74,7 @@ int 				x_y_coord(char *line, int is_x);
 int 				two_spaces(char *line);
 int 				two_start(t_skrr *skrr);
 int					what_is_next(t_skrr *skrr, char **line, int start);
+int 				need_it(char **line, t_skrr *skrr);
 
 //tmp fucntions
 void	print_lists(t_info *head);

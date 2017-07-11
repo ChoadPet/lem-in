@@ -1,11 +1,15 @@
 10
 ##start
+#third
 room_start 23 34
+#third
 room_2 16 7
 room_3 16 3
 room_4 16 5
 room_5 9 3
 ##end
+#coment
 room_end 9 5
 room_6 1 5
 room_7 4 8
+#comment
