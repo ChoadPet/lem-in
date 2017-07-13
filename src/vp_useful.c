@@ -30,15 +30,22 @@ void	init_func(t_skrr *skrr, t_room **room, t_link **link)
 	g_info = NULL;
 }
 
-int 	need_it(char **line, t_skrr *skrr)
+char 	*get_link(char *line)
 {
-	if (**line == '#' && *(*line + 1) != '#')
-		return (1);
-	if ((ft_strcmp("##end", *line)) && (ft_strcmp("##start", *line)) &&
-		(!(ft_strncmp("##", *line, 2))))
-		return (1);
-	push_to_end(line);
-	return (1);
+	char 	*name;
+	int 	i;
+
+	i = -1;
+	while ((*line) && (*line) != '-')
+		line++;
+	while (*line)
+	{
+		i++;
+		line++;
+	}
+	name = ft_strnew((size_t)i);
+	ft_strncpy(name, line - i, (size_t)i);
+	return (name);
 }
 
 char 	*get_name(char *line, char c)

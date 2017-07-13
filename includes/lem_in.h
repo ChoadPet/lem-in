@@ -71,10 +71,11 @@ int 				link_info(t_skrr *skrr, t_room **room, char **line, t_link **link);
 int					push_room(t_room **room, char **line, char c);
 int 				rooms_comp(t_room *room, char *line);
 int					push_link(t_link **link, char **line, char c);
-int					link_cmp_rooms(t_link *link, char *line);
+//int					link_cmp_rooms(t_link *link, char *line); // TODO function which should do more validations
 int 				push_to_end(char **line);
 void				init_func(t_skrr *skrr, t_room **room, t_link **link);
 char 				*get_name(char *line, char c);
+char 				*get_link(char *line);
 int 				x_y_coord(char *line, int is_x);
 int 				two_spaces_start(t_skrr *skrr, char *line);
 int					what_is_next(t_skrr *skrr, char **line, int start);

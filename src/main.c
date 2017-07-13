@@ -20,7 +20,7 @@ int main()
 	t_room	*room;
 	t_link	*link;
 
-	g_fd = open("test_3", O_RDONLY);
+	g_fd = open("test_1", O_RDONLY);
 	(g_fd < 0) ? perror("fd error") : 0;
 	init_func(&skrr, &room, &link);
 	while (get_next_line(g_fd, &line) > 0)

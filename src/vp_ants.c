@@ -59,8 +59,8 @@ int 	link_info(t_skrr *skrr, t_room **room, char **line, t_link **link)
 		return (1);
 	if (!should_i(skrr, *room, *line))
 		return (0);
-//	if (**line != '#')
-//		if (!push_link(link, line, '-'))
+	if (**line != '#')
+		if (!push_link(link, line, '-'))
 	return (1);
 }
 
@@ -86,10 +86,8 @@ int		push_link(t_link **link, char **line, char c)
 
 	if (!(new_link = (t_link *)malloc(sizeof(t_link))))
 		return (0);
-//	if (!link_cmp_rooms(*link, *line))
-//		return (0);
 	new_link->name1 = get_name(*line, c);
-	new_link->name2 = get_name(*line, '\0');
+	new_link->name2 = get_link(*line);
 	new_link->next = *link;
 	*link = new_link;
 	return (1);
