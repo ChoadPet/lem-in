@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /nfs/2016/v/vpoltave/lem-in
+CMAKE_SOURCE_DIR = /nfs/2016/v/vpoltave/homerepol
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /nfs/2016/v/vpoltave/lem-in/cmake-build-debug
+CMAKE_BINARY_DIR = /nfs/2016/v/vpoltave/homerepol/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles /nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/v/vpoltave/homerepol/cmake-build-debug/CMakeFiles /nfs/2016/v/vpoltave/homerepol/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/v/vpoltave/homerepol/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -2148,6 +2148,33 @@ src/vp_useful_2.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/vp_useful_2.c.s
 .PHONY : src/vp_useful_2.c.s
 
+src/vp_useful_3.o: src/vp_useful_3.c.o
+
+.PHONY : src/vp_useful_3.o
+
+# target to build an object file
+src/vp_useful_3.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/vp_useful_3.c.o
+.PHONY : src/vp_useful_3.c.o
+
+src/vp_useful_3.i: src/vp_useful_3.c.i
+
+.PHONY : src/vp_useful_3.i
+
+# target to preprocess a source file
+src/vp_useful_3.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/vp_useful_3.c.i
+.PHONY : src/vp_useful_3.c.i
+
+src/vp_useful_3.s: src/vp_useful_3.c.s
+
+.PHONY : src/vp_useful_3.s
+
+# target to generate assembly for a file
+src/vp_useful_3.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/vp_useful_3.c.s
+.PHONY : src/vp_useful_3.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -2382,6 +2409,9 @@ help:
 	@echo "... src/vp_useful_2.o"
 	@echo "... src/vp_useful_2.i"
 	@echo "... src/vp_useful_2.s"
+	@echo "... src/vp_useful_3.o"
+	@echo "... src/vp_useful_3.i"
+	@echo "... src/vp_useful_3.s"
 .PHONY : help
 
 
