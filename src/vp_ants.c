@@ -18,6 +18,8 @@ int 	fck_ants(t_skrr *skrr, char **line)
 		return (0);
 	if (**line == '#')
 		return (1);
+	if (ft_strchr(*line, '-'))
+		return (0);
 	skrr->ants = ft_atoi(*line);
 	if (skrr->ants < 0)
 		return (0);
@@ -25,37 +27,52 @@ int 	fck_ants(t_skrr *skrr, char **line)
 	return (1);
 }
 
-
-int 	basic_info(t_skrr *skrr, t_room **head, char **line)
+int 	room_info(t_skrr *skrr, t_room **room, char **line)
 {
-	if (**line == '#' && *(*line + 1) != '#')
-		return (1);
+	if (skrr->found_links)
+		return (0);
 	if (!(ft_strcmp("##start", *line)))
 		if (!what_is_next(skrr, line, 1))
 			return (0);
 	if (!(ft_strcmp("##end", *line)))
 		if (!what_is_next(skrr, line, 0))
 			return (0);
-	if (two_spaces(*line) && (!skrr->comment_s && !(skrr->comment_e)))
-		return (0);
-	else if (two_start(skrr) && (!skrr->comment_s && !(skrr->comment_e)))
+	if (**line == '#' || *(*line + 1) == '#')
+		return (1);
+	if (!two_spaces_start(skrr, *line))
 		return (0);
 	if ((skrr->start == 1 && !(skrr->for_start)) && (skrr->for_start = 1))
-		push_to_beg(&skrr->start_room, line);
-	else if ((skrr->end == 1 && !(skrr->for_end)) && (skrr->for_end = 1))
-		push_to_beg(&skrr->end_room, line);
-	else if (!skrr->comment_e || !(skrr->comment_s))
-		push_to_beg(head, line);
+		skrr->start_name = get_name(*line, ' ');
+	if ((skrr->end == 1 && !(skrr->for_end)) && (skrr->for_end = 1))
+		skrr->end_name = get_name(*line, ' ');
+	if (**line != '#')
+		if (!push_room(room, line, ' '))
+			return (0);
 	return (1);
 }
 
-int		push_to_beg(t_room **head, char **line)
+int 	link_info(t_skrr *skrr, t_room **room, char **line, t_link **link)
+{
+	if (skrr->found_rooms)
+		return (0);
+	if (**line == '#' || *(*line + 1) == '#')
+		return (1);
+	if (!should_i(skrr, *room, *line))
+		return (0);
+//	if (**line != '#')
+//		if (!push_link(link, line, '-'))
+	return (1);
+}
+
+int		push_room(t_room **head, char **line, char c)
 {
 	t_room *new_room;
 
 	if (!(new_room = (t_room *)malloc(sizeof(t_room))))
 		return (0);
-	new_room->name = get_name(*line);
+	if (!rooms_comp(*head, *line))
+		return (0);
+	new_room->name = get_name(*line, c); //TODO don't need 'char c' as par, delet later
 	new_room->x_coord = x_y_coord(*line, 1);
 	new_room->y_coord = x_y_coord(*line, 0);
 	new_room->next = *head;
@@ -63,24 +80,17 @@ int		push_to_beg(t_room **head, char **line)
 	return (1);
 }
 
-
-int 	push_to_end(char **line)
+int		push_link(t_link **link, char **line, char c)
 {
-	t_info *new_room;
-	t_info *current;
+	t_link *new_link;
 
-	if (!(new_room = (t_info *)malloc(sizeof(t_info))))
+	if (!(new_link = (t_link *)malloc(sizeof(t_link))))
 		return (0);
-	new_room->info = ft_strdup(*line);
-	new_room->next = NULL;
-	if (g_info == NULL)
-		g_info = new_room;
-	else
-	{
-		current = g_info;
-		while (current->next != NULL)
-			current = current->next;
-		current->next = new_room;
-	}
+//	if (!link_cmp_rooms(*link, *line))
+//		return (0);
+	new_link->name1 = get_name(*line, c);
+	new_link->name2 = get_name(*line, '\0');
+	new_link->next = *link;
+	*link = new_link;
 	return (1);
 }

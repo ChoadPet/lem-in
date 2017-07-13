@@ -4,6 +4,8 @@
 #include "../libft/src/libft/libft.h"
 #include <stdio.h>
 
+int 				g_fd; // TODO delete this before final the project!
+
 /*
 ** linked list for rooms info
 */
@@ -22,8 +24,8 @@ typedef struct 		s_room
 
 typedef struct 		s_link
 {
-	char 			*name_1;
-	char 			*name_2;
+	char 			*name1;
+	char 			*name2;
 	struct s_link	*next;
 }					t_link;
 
@@ -49,34 +51,39 @@ typedef struct		s_skrr
 	int 			end;
 	int 			for_start;
 	int 			for_end;
-	int 			comment_s;
-	int 			comment_e;
-	int 			first_time;
-	t_room			*start_room;
-	t_room			*end_room;
+	int 			found_rooms;
+	int 			found_links;
+	int 			name_1;
+	int				name_2;
+	char			*start_name;
+	char			*end_name;
 }					t_skrr;
 
 /*
 ** function for lem_in
 */
-
 t_info				*g_info;
-int 				g_fd;
 
 int					fck_ants(t_skrr *skrr, char **line);
 int					oops_error(void);
-int					basic_info(t_skrr *skrr, t_room **head, char **line);
-int					push_to_beg(t_room **head, char **line);
+int					room_info(t_skrr *skrr, t_room **room, char **line);
+int 				link_info(t_skrr *skrr, t_room **room, char **line, t_link **link);
+int					push_room(t_room **room, char **line, char c);
+int 				rooms_comp(t_room *room, char *line);
+int					push_link(t_link **link, char **line, char c);
+int					link_cmp_rooms(t_link *link, char *line);
 int 				push_to_end(char **line);
-void				init_func(t_skrr *skrr, t_room **head);
-char 				*get_name(char *line);
+void				init_func(t_skrr *skrr, t_room **room, t_link **link);
+char 				*get_name(char *line, char c);
 int 				x_y_coord(char *line, int is_x);
-int 				two_spaces(char *line);
-int 				two_start(t_skrr *skrr);
+int 				two_spaces_start(t_skrr *skrr, char *line);
 int					what_is_next(t_skrr *skrr, char **line, int start);
 int 				need_it(char **line, t_skrr *skrr);
+int 				should_i(t_skrr *skrr, t_room *room, char *line);
+int 				found_room(t_skrr *skrr, char *line);
+int 				found_links(t_skrr *skrr, char *line);
 
 //tmp fucntions
-void	print_lists(t_info *head);
+void				print_lists(t_info *head);
 
 #endif

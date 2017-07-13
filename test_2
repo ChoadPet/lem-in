@@ -1,15 +1,23 @@
+#ants
+##lol
 10
+#start command
 ##start
-#third
-room_start 23 34
-#third
+#comment
+##lol
+room_start 15 34
 room_2 16 7
 room_3 16 3
 room_4 16 5
+##lol
 room_5 9 3
+#end command
 ##end
-#coment
+##lol
+#anoother comment
 room_end 9 5
+#comment
 room_6 1 5
 room_7 4 8
-#comment
+#end of file
+##lol

@@ -10,33 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdio.h> // TODO delete this before finish the project
 #include "../includes/lem_in.h"
 
 int main()
 {
 	char 	*line;
 	t_skrr	skrr;
-	t_room	*head;
+	t_room	*room;
+	t_link	*link;
 
-	g_fd = open("test_2", O_RDONLY);
+	g_fd = open("test_3", O_RDONLY);
 	(g_fd < 0) ? perror("fd error") : 0;
-	init_func(&skrr, &head);
+	init_func(&skrr, &room, &link);
 	while (get_next_line(g_fd, &line) > 0)
 	{
 		if (!need_it(&line, &skrr))
 			return (oops_error());
-		if (skrr.flag_an == 0)
-			if (!(basic_info(&skrr, &head, &line)))
+		if (skrr.flag_an == 0 && (found_room(&skrr, line)))
+			if (!(room_info(&skrr, &room, &line)))
+				return (oops_error());
+		if (found_links(&skrr, line))
+			if (!(link_info(&skrr, &room, &line, &link)))
 				return (oops_error());
 		if (skrr.flag_an == -1)
 			if (!(fck_ants(&skrr, &line)))
 				return (oops_error());
 	}
-	if (!skrr.start || !skrr.end)
+	if (!skrr.start || !skrr.end) // TODO maybe don't need it, next row too
 		return (oops_error());
 	print_lists(g_info);
-	close (g_fd);
+	close (g_fd); // TODO delete this before finish the project
 	return (0);
 }
 

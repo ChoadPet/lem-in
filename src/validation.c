@@ -15,64 +15,59 @@
 int 	oops_error()
 {
 	ft_putstr("ERROR\n");
-	return (-1);
+	return (0);
 }
 
-int 	two_spaces(char *line)
+int 	two_spaces_start(t_skrr *skrr, char *line)
 {
 	int spaces;
-	int wrong_name;
+	int wr_name;
 
-	wrong_name = 0;
+	wr_name = 0;
 	spaces = 0;
+	if (skrr->start > 1 || skrr->end > 1)
+		return (0);
+	if (*line == '#')
+		return (1);
 	while (*line)
 	{
-		if (line[0] == 'L' || line[0] == '#')
-			wrong_name++;
+		(line[0] == 'L' || line[0] == '#' || line[0] == '-') ? wr_name++ : 0;
 		if (*line == ' ')
-			spaces++;
-		line++;
+		{
+			(*line == ' ' && (*(line + 1) == ' ')) ? wr_name++ : 0;
+			while (*line)
+			{
+				(*line == ' ' && (line)++) ? spaces++ : 0;
+				(!ft_isdigit(*line) && *line != '-') ? wr_name++ : 0;
+				(*line) ? (line)++ : 0;
+			}
+		}
+		(*line) ? line++ : 0;
 	}
-	if (spaces == 2 && wrong_name == 0)
-		return (0);
-	else
-		return (1);
-}
-
-int 	two_start(t_skrr *skrr)
-{
-	if (skrr->start > 1 || skrr->end > 1)
-		return (1);
-	else
-		return (0);
+	return ((spaces == 2) && (wr_name == 0) ? 1 : 0);
 }
 
 int		what_is_next(t_skrr *skrr, char **line, int start)
 {
-	if (start)
-	{
-		skrr->start++;
-		if (get_next_line(g_fd, line) > 0)
-			if (!(ft_strcmp("##end", *line)) || !(ft_strcmp("##start", *line)))
-				return (0);
-		if (!need_it(line, skrr))
+	(start) ? skrr->start++ : skrr->end++;
+	if (get_next_line(g_fd, line) > 0)
+		if (!(ft_strcmp("##end", *line)) || !(ft_strcmp("##start", *line)))
 			return (0);
-		if ((**line == '#') && (skrr->comment_s = 1))
-			return (1);
-		push_to_end(line);
-		return (1);
-	}
-	else
+	if (!need_it(line, skrr))
+		return (0);
+	return (1);
+}
+
+int 	rooms_comp(t_room *room, char *line)
+{
+	while (room != NULL)
 	{
-		skrr->end++;
-		if (get_next_line(g_fd, line) > 0)
-			if (!(ft_strcmp("##end", *line)) || !(ft_strcmp("##start", *line)))
-				return (0);
-		if (!need_it(line, skrr))
+		if (!ft_strcmp(room->name, get_name(line, ' ')))
 			return (0);
-		if ((**line == '#') && (skrr->comment_e = 1))
-			return (1);
-		push_to_end(line);
-		return (1);
+		if ((room->x_coord == x_y_coord(line, 1)) &&
+				(room->y_coord == x_y_coord(line, 0)))
+			return (0);
+		room = room->next;
 	}
+	return (1);
 }
