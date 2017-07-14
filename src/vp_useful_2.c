@@ -71,8 +71,6 @@ int 	should_i(t_skrr *skrr, t_room *room, char *line)
 
 int 	found_links(t_skrr *skrr, char *line)
 {
-	if (!skrr->for_start || !skrr->for_end)
-		return (0);
 	skrr->found_links = 0;
 	while (*line && *line != ' ')
 	{

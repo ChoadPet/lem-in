@@ -53,6 +53,8 @@ int 	room_info(t_skrr *skrr, t_room **room, char **line)
 
 int 	link_info(t_skrr *skrr, t_room **room, char **line, t_link **link)
 {
+	if ((!skrr->for_start || !skrr->for_end))
+		return (0);
 	if (skrr->found_rooms)
 		return (0);
 	if (**line == '#' || *(*line + 1) == '#')
@@ -61,6 +63,7 @@ int 	link_info(t_skrr *skrr, t_room **room, char **line, t_link **link)
 		return (0);
 	if (**line != '#')
 		if (!push_link(link, line, '-'))
+			return (0);
 	return (1);
 }
 
@@ -72,7 +75,7 @@ int		push_room(t_room **head, char **line, char c)
 		return (0);
 	if (!rooms_comp(*head, *line))
 		return (0);
-	new_room->name = get_name(*line, c); //TODO don't need 'char c' as par, delet later
+	new_room->name = get_name(*line, c);
 	new_room->x_coord = x_y_coord(*line, 1);
 	new_room->y_coord = x_y_coord(*line, 0);
 	new_room->next = *head;

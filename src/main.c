@@ -33,11 +33,11 @@ int main()
 		if (found_links(&skrr, line))
 			if (!(link_info(&skrr, &room, &line, &link)))
 				return (oops_error());
-		if (skrr.flag_an == -1)
+		if (skrr.flag_an == -1) // TODO need to find place, where to put main algo
 			if (!(fck_ants(&skrr, &line)))
 				return (oops_error());
 	}
-	if (!skrr.start || !skrr.end) // TODO maybe don't need it, next row too
+	if ((!skrr.start || !skrr.end) || (!skrr.found_links)) // TODO maybe don't need it, next row too
 		return (oops_error());
 	print_lists(g_info);
 	close (g_fd); // TODO delete this before finish the project
