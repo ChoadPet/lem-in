@@ -1,7 +1,9 @@
-12
+#comment
+122
 ##start
 1 10 10
 2 5 4
+##wrongcommand
 #comment
 3 9 3
 4 4 5

@@ -4,40 +4,47 @@
 #include "../libft/src/libft/libft.h"
 #include <stdio.h>
 
-int 				g_fd; // TODO delete this before final the project!
+int 					g_fd; // TODO delete this before final the project!
 
 /*
 ** linked list for rooms info
 */
 
-typedef struct 		s_room
+typedef struct			s_room
 {
-	char 			*name;
-	int 			x_coord;
-	int 			y_coord;
-	struct s_room 	*next;
-}					t_room;
+	char 				*name;
+	int 				x_coord;
+	int 				y_coord;
+
+	struct s_room		*next;
+}						t_room;
 
 /*
 ** linked list for linking the rooms
 */
 
-typedef struct 		s_link
+typedef struct 			s_link
 {
-	char 			*name1;
-	char 			*name2;
-	struct s_link	*next;
-}					t_link;
+	char 				*name1;
+	char 				*name2;
+	struct s_link		*next;
+}						t_link;
+
+typedef struct			s_neighbors
+{
+    char 				*name;
+    struct s_neighbors	*next;
+}						t_neighbors;
 
 /*
 ** linked list for each fucking line
 */
 
-typedef struct 		s_info
+typedef struct 			s_info
 {
-	char 			*info;
-	struct s_info	*next;
-}					t_info;
+	char 				*info;
+	struct s_info		*next;
+}						t_info;
 
 /*
 ** basic struct for additional info

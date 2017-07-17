@@ -14,11 +14,11 @@
 
 int 	need_it(char **line, t_skrr *skrr)
 {
-	if (**line == '#' && *(*line + 1) != '#')
-		return (1);
-	if ((ft_strcmp("##end", *line)) && (ft_strcmp("##start", *line)) &&
-		(!(ft_strncmp("##", *line, 2))))
-		return (1);
+//	if (**line == '#' && *(*line + 1) != '#') // TODO needed it for hide comments
+//		return (1);
+//	if ((ft_strcmp("##end", *line)) && (ft_strcmp("##start", *line)) &&
+//		(!(ft_strncmp("##", *line, 2))))
+//		return (1);
 	push_to_end(line);
 	return (1);
 }
@@ -29,8 +29,8 @@ int 	push_to_end(char **line)
 	t_info *new_room;
 	t_info *current;
 
-	if (**line == '#' && *(*line + 1) != '#')
-		return (1);
+//	if (**line == '#' && *(*line + 1) != '#') // TODO needed it for hide comments
+//		return (1);
 	if (!(new_room = (t_info *)malloc(sizeof(t_info))))
 		return (0);
 	new_room->info = ft_strdup(*line);
