@@ -7,6 +7,16 @@
 int 					g_fd; // TODO delete this before final the project!
 
 /*
+** linked list for all neighbors in current room
+*/
+
+typedef struct			s_neighbors
+{
+	struct s_room		*neighb;
+	struct s_neighbors	*next;
+}						t_neighbors;
+
+/*
 ** linked list for rooms info
 */
 
@@ -15,7 +25,7 @@ typedef struct			s_room
 	char 				*name;
 	int 				x_coord;
 	int 				y_coord;
-
+	t_neighbors			*neighbors;
 	struct s_room		*next;
 }						t_room;
 
@@ -29,12 +39,6 @@ typedef struct 			s_link
 	char 				*name2;
 	struct s_link		*next;
 }						t_link;
-
-typedef struct			s_neighbors
-{
-    char 				*name;
-    struct s_neighbors	*next;
-}						t_neighbors;
 
 /*
 ** linked list for each fucking line
@@ -90,8 +94,11 @@ int 				need_it(char **line, t_skrr *skrr);
 int 				should_i(t_skrr *skrr, t_room *room, char *line);
 int 				found_room(t_skrr *skrr, char *line);
 int 				found_links(t_skrr *skrr, char *line);
+int 				get_neighbor(t_skrr *skrr, t_room *room, t_link *link);
+int 				push_neighbor(t_neighbors **neighbor, t_room *current);
 
 //tmp fucntions
 void				print_lists(t_info *head);
+int 				print_nei(t_room *room);
 
 #endif

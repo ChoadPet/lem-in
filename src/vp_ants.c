@@ -29,7 +29,7 @@ int 	fck_ants(t_skrr *skrr, char **line)
 
 int 	room_info(t_skrr *skrr, t_room **room, char **line)
 {
-	if (skrr->found_links)
+	if (skrr->found_links && **line != '#')
 		return (0);
 	if (!(ft_strcmp("##start", *line)))
 		if (!what_is_next(skrr, line, 1))
@@ -64,6 +64,8 @@ int 	link_info(t_skrr *skrr, t_room **room, char **line, t_link **link)
 	if (**line != '#')
 		if (!push_link(link, line, '-'))
 			return (0);
+	if (!get_neighbor(skrr, *room, *link)) // TODO this func have to create pointer in current room to his neighbors
+		return (0);
 	return (1);
 }
 

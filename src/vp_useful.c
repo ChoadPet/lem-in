@@ -87,9 +87,11 @@ void	print_lists(t_info *head)
 	t_info *current;
 
 	current = head;
+	ft_printf("\n\n");
 	while (current != NULL)
 	{
 		ft_printf("%s\n", current->info);
 		current = current->next;
 	}
 }
+
