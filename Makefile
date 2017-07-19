@@ -18,6 +18,9 @@ OBJECTS =	./src/main.o					\
             ./src/vp_ants.o                 \
             ./src/vp_useful.o               \
             ./src/vp_useful_2.o             \
+            ./src/vp_useful_3.o             \
+            ./src/vp_validation.o           \
+            ./src/main_algo.o               \
 
 .PHONY: libft
 

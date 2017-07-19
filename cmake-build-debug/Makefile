@@ -2040,6 +2040,33 @@ src/main.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/main_algo.o: src/main_algo.c.o
+
+.PHONY : src/main_algo.o
+
+# target to build an object file
+src/main_algo.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/main_algo.c.o
+.PHONY : src/main_algo.c.o
+
+src/main_algo.i: src/main_algo.c.i
+
+.PHONY : src/main_algo.i
+
+# target to preprocess a source file
+src/main_algo.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/main_algo.c.i
+.PHONY : src/main_algo.c.i
+
+src/main_algo.s: src/main_algo.c.s
+
+.PHONY : src/main_algo.s
+
+# target to generate assembly for a file
+src/main_algo.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/main_algo.c.s
+.PHONY : src/main_algo.c.s
+
 src/validation.o: src/validation.c.o
 
 .PHONY : src/validation.o
@@ -2397,6 +2424,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/main_algo.o"
+	@echo "... src/main_algo.i"
+	@echo "... src/main_algo.s"
 	@echo "... src/validation.o"
 	@echo "... src/validation.i"
 	@echo "... src/validation.s"
