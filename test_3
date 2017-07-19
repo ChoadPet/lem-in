@@ -1,9 +1,9 @@
 184
 ##start
 start 5 10
-sta 5 11
 ##end
 end 4 5
 start-end
+end-start
 end-start
 start-end

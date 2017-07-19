@@ -68,6 +68,8 @@ typedef struct		s_skrr
 	int				name_2;
 	char			*start_name;
 	char			*end_name;
+	int 			init_nei;
+	t_neighbors		*neighb;
 }					t_skrr;
 
 /*
@@ -96,6 +98,7 @@ int 				found_room(t_skrr *skrr, char *line);
 int 				found_links(t_skrr *skrr, char *line);
 int 				get_neighbor(t_skrr *skrr, t_room *room, t_link *link);
 int 				push_neighbor(t_neighbors **neighbor, t_room *current);
+int					second_neighbor(t_neighbors *neighbors, t_room *current);
 
 //tmp fucntions
 void				print_lists(t_info *head);

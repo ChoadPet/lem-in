@@ -80,6 +80,7 @@ int		push_room(t_room **head, char **line, char c)
 	new_room->name = get_name(*line, c);
 	new_room->x_coord = x_y_coord(*line, 1);
 	new_room->y_coord = x_y_coord(*line, 0);
+	new_room->neighbors = NULL;
 	new_room->next = *head;
 	*head = new_room;
 	return (1);

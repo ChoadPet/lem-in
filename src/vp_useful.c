@@ -23,8 +23,10 @@ void	init_func(t_skrr *skrr, t_room **room, t_link **link)
 	skrr->found_links = 0;
 	skrr->name_1 = 0;
 	skrr->name_2 = 0;
+	skrr->init_nei = 0;
 	skrr->start_name = NULL;
 	skrr->end_name = NULL;
+	skrr->neighb = NULL;
 	*link = NULL;
 	*room = NULL;
 	g_info = NULL;
@@ -87,7 +89,6 @@ void	print_lists(t_info *head)
 	t_info *current;
 
 	current = head;
-	ft_printf("\n\n");
 	while (current != NULL)
 	{
 		ft_printf("%s\n", current->info);
