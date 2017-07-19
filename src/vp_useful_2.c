@@ -71,6 +71,8 @@ int 	should_i(t_skrr *skrr, t_room *room, char *line)
 
 int 	found_links(t_skrr *skrr, char *line)
 {
+	if (*line == '#')
+		return (1);
 	skrr->found_links = 0;
 	while (*line && *line != ' ')
 	{
@@ -83,6 +85,8 @@ int 	found_links(t_skrr *skrr, char *line)
 int 	found_room(t_skrr *skrr, char *line)
 {
 	skrr->found_rooms = 0;
+	if (*line == '#')
+		return (1);
 	if ((!ft_strcmp("##start", line) ||
 			(!ft_strcmp("##end", line))) && (skrr->found_rooms = 1))
 		return (1);

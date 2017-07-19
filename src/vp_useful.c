@@ -12,7 +12,7 @@
 
 #include "../includes/lem_in.h"
 
-void	init_func(t_skrr *skrr, t_room **room, t_link **link)
+void	init_func(t_skrr *skrr)
 {
 	skrr->flag_an = -1;
 	skrr->start = 0;
@@ -23,12 +23,13 @@ void	init_func(t_skrr *skrr, t_room **room, t_link **link)
 	skrr->found_links = 0;
 	skrr->name_1 = 0;
 	skrr->name_2 = 0;
-	skrr->init_nei = 0;
 	skrr->start_name = NULL;
 	skrr->end_name = NULL;
 	skrr->neighb = NULL;
-	*link = NULL;
-	*room = NULL;
+	skrr->current = NULL; // TODO can delete it later
+	skrr->tmp = NULL; // TODO can delete it later
+	skrr->link = NULL;
+	skrr->room = NULL;
 	g_info = NULL;
 }
 
@@ -72,7 +73,7 @@ int 	x_y_coord(char *line, int is_x)
 	{
 		while ((*line) && *line != ' ')
 			(line)++;
-		return (ft_atoi(line));
+		return ((int)ft_atoi(line));
 	}
 	else
 	{
@@ -80,7 +81,7 @@ int 	x_y_coord(char *line, int is_x)
 			(line)++;
 		while (*line != ' ')
 			line--;
-		return (ft_atoi(line));
+		return ((int)ft_atoi(line));
 	}
 }
 

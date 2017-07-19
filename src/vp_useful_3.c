@@ -14,29 +14,24 @@
 
 int 	get_neighbor(t_skrr *skrr, t_room *room, t_link *link)
 {
-	t_room *current;
-	t_room *addit;
-
-	addit = room;
+	skrr->tmp = room;
 	while (room)
 	{
-
-		if (!ft_strcmp(room->name, link->name1))
+		if (!ft_strcmp(room->name, link->name1) && (skrr->current = skrr->tmp))
 		{
-			current = addit;
-			while (current)
+			while (skrr->current)
 			{
-				if (!(ft_strcmp(current->name, link->name2)))
+				if (!(ft_strcmp(skrr->current->name, link->name2)))
 				{
-					if (second_neighbor(room->neighbors, current))
+					if (second_neighbor(room->neighbors, skrr->current))
 						return (1);
-					if (!push_neighbor(&room->neighbors, current))
+					if (!push_neighbor(&room->neighbors, skrr->current))
 						return (0);
-					if (!push_neighbor(&current->neighbors, room))
+					if (!push_neighbor(&skrr->current->neighbors, room))
 						return (0);
 					return (1);
 				}
-				current = current->next;
+				skrr->current = skrr->current->next;
 			}
 		}
 		room = room->next;
@@ -73,6 +68,7 @@ int 	print_nei(t_room *room)
 	t_neighbors	*first;
 
 	current = room;
+	ft_printf("---------------------links---------------------");
 	while (current)
 	{
 		ft_printf("\n%s -> ", current->name);

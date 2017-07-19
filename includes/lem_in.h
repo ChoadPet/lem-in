@@ -4,7 +4,7 @@
 #include "../libft/src/libft/libft.h"
 #include <stdio.h>
 
-int 					g_fd; // TODO delete this before final the project!
+int 					g_fd; // TODO delete this before finish the project!
 
 /*
 ** linked list for all neighbors in current room
@@ -56,7 +56,7 @@ typedef struct 			s_info
 
 typedef struct		s_skrr
 {
-	int				ants;
+	long int		ants;
 	int 			flag_an;
 	int 			start;
 	int 			end;
@@ -68,8 +68,11 @@ typedef struct		s_skrr
 	int				name_2;
 	char			*start_name;
 	char			*end_name;
-	int 			init_nei;
+	t_room			*current;
+	t_room			*tmp;
 	t_neighbors		*neighb;
+	t_room			*room;
+	t_link			*link;
 }					t_skrr;
 
 /*
@@ -84,9 +87,8 @@ int 				link_info(t_skrr *skrr, t_room **room, char **line, t_link **link);
 int					push_room(t_room **room, char **line, char c);
 int 				rooms_comp(t_room *room, char *line);
 int					push_link(t_link **link, char **line, char c);
-//int					link_cmp_rooms(t_link *link, char *line); // TODO function which should do more validations
 int 				push_to_end(char **line);
-void				init_func(t_skrr *skrr, t_room **room, t_link **link);
+void				init_func(t_skrr *skrr);
 char 				*get_name(char *line, char c);
 char 				*get_link(char *line);
 int 				x_y_coord(char *line, int is_x);

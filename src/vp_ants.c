@@ -14,14 +14,13 @@
 
 int 	fck_ants(t_skrr *skrr, char **line)
 {
-	if ((!(ft_strcmp("##start", *line))) || !(ft_strcmp("##end", *line)))
+	if ((!(ft_strcmp("##start", *line))) || !(ft_strcmp("##end", *line)) ||
+			(ft_strchr(*line, '-') || (**line == '\0')))
 		return (0);
 	if (**line == '#')
 		return (1);
-	if (ft_strchr(*line, '-'))
-		return (0);
 	skrr->ants = ft_atoi(*line);
-	if (skrr->ants < 0)
+	if ((skrr->ants < 0) || (skrr->ants > 2147483647))
 		return (0);
 	skrr->flag_an = 0;
 	return (1);
@@ -53,12 +52,12 @@ int 	room_info(t_skrr *skrr, t_room **room, char **line)
 
 int 	link_info(t_skrr *skrr, t_room **room, char **line, t_link **link)
 {
+	if ((**line == '#' && *(*line + 1) == '#') || (**line == '#'))
+		return (1);
 	if ((!skrr->for_start || !skrr->for_end))
 		return (0);
 	if (skrr->found_rooms)
 		return (0);
-	if (**line == '#' || *(*line + 1) == '#')
-		return (1);
 	if (!should_i(skrr, *room, *line))
 		return (0);
 	if (**line != '#')
