@@ -23,7 +23,7 @@ int main()
 	init_func(&skrr);
 	while (get_next_line(g_fd, &line) > 0)
 	{
-		if (!need_it(&line, &skrr))
+		if (!need_it(&line))
 			return (oops_error());
 		if (skrr.flag_an == 0 && (found_room(&skrr, line)))
 			if (!(room_info(&skrr, &skrr.room, &line)))
@@ -38,8 +38,11 @@ int main()
 	if ((!skrr.start || !skrr.end) || (!skrr.found_links) || skrr.start > 1 ||
 		skrr.end > 1) // TODO maybe don't need it, next row too
 		return (oops_error());
-	print_lists(g_info);
-	print_nei(skrr.room);
+//	print_lists(g_info);
+	if (bfs(&skrr, skrr.room))
+		get_my_path(&skrr, skrr.room);
+//	print_nei(skrr.room);
+	ft_strdel(&line);
 	close (g_fd); // TODO delete this before finish the project
 	return (0);
 }

@@ -22,9 +22,11 @@ typedef struct			s_neighbors
 
 typedef struct			s_room
 {
-	char 				*name;
-	int 				x_coord;
-	int 				y_coord;
+	char				*name;
+	long int 			x_coord;
+	long int 			y_coord;
+	int 				metka;
+	int 				index;
 	t_neighbors			*neighbors;
 	struct s_room		*next;
 }						t_room;
@@ -41,7 +43,17 @@ typedef struct 			s_link
 }						t_link;
 
 /*
-** linked list for each fucking line
+** linked list for my shortest path
+*/
+
+typedef struct			s_path
+{
+	char 				*name;
+	struct s_path		*next;
+}						t_path;
+
+/*
+** linked list for each line (for output)
 */
 
 typedef struct 			s_info
@@ -68,15 +80,17 @@ typedef struct		s_skrr
 	int				name_2;
 	char			*start_name;
 	char			*end_name;
+	int 			vertex;
 	t_room			*current;
 	t_room			*tmp;
 	t_neighbors		*neighb;
 	t_room			*room;
 	t_link			*link;
+	t_path			*path;
 }					t_skrr;
 
 /*
-** function for lem_in
+** functions for lem_in
 */
 t_info				*g_info;
 
@@ -84,23 +98,28 @@ int					fck_ants(t_skrr *skrr, char **line);
 int					oops_error(void);
 int					room_info(t_skrr *skrr, t_room **room, char **line);
 int 				link_info(t_skrr *skrr, t_room **room, char **line, t_link **link);
-int					push_room(t_room **room, char **line, char c);
+int					push_room(t_room **room, char **line, char c, t_skrr *skrr);
 int 				rooms_comp(t_room *room, char *line);
 int					push_link(t_link **link, char **line, char c);
 int 				push_to_end(char **line);
 void				init_func(t_skrr *skrr);
 char 				*get_name(char *line, char c);
 char 				*get_link(char *line);
-int 				x_y_coord(char *line, int is_x);
+long int 			x_y_coord(char *line, int is_x);
 int 				two_spaces_start(t_skrr *skrr, char *line);
 int					what_is_next(t_skrr *skrr, char **line, int start);
-int 				need_it(char **line, t_skrr *skrr);
+int 				need_it(char **line);
 int 				should_i(t_skrr *skrr, t_room *room, char *line);
 int 				found_room(t_skrr *skrr, char *line);
 int 				found_links(t_skrr *skrr, char *line);
 int 				get_neighbor(t_skrr *skrr, t_room *room, t_link *link);
 int 				push_neighbor(t_neighbors **neighbor, t_room *current);
 int					second_neighbor(t_neighbors *neighbors, t_room *current);
+int 				make_start(t_room **room, t_skrr *skrr);
+int					bfs(t_skrr *skrr, t_room *room);
+int 				get_index(t_room *room, int d);
+t_room				*get_room(t_room *head, int d);
+int 				get_my_path(t_skrr *skrr, t_room *room);
 
 //tmp fucntions
 void				print_lists(t_info *head);

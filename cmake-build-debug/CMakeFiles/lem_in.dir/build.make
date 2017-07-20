@@ -129,33 +129,9 @@ CMakeFiles/lem_in.dir/src/main_algo.c.o.provides: CMakeFiles/lem_in.dir/src/main
 CMakeFiles/lem_in.dir/src/main_algo.c.o.provides.build: CMakeFiles/lem_in.dir/src/main_algo.c.o
 
 
-CMakeFiles/lem_in.dir/src/validation.c.o: CMakeFiles/lem_in.dir/flags.make
-CMakeFiles/lem_in.dir/src/validation.c.o: ../src/validation.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/lem_in.dir/src/validation.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lem_in.dir/src/validation.c.o   -c /nfs/2016/v/vpoltave/lem-in/src/validation.c
-
-CMakeFiles/lem_in.dir/src/validation.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lem_in.dir/src/validation.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/v/vpoltave/lem-in/src/validation.c > CMakeFiles/lem_in.dir/src/validation.c.i
-
-CMakeFiles/lem_in.dir/src/validation.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lem_in.dir/src/validation.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/v/vpoltave/lem-in/src/validation.c -o CMakeFiles/lem_in.dir/src/validation.c.s
-
-CMakeFiles/lem_in.dir/src/validation.c.o.requires:
-
-.PHONY : CMakeFiles/lem_in.dir/src/validation.c.o.requires
-
-CMakeFiles/lem_in.dir/src/validation.c.o.provides: CMakeFiles/lem_in.dir/src/validation.c.o.requires
-	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/validation.c.o.provides.build
-.PHONY : CMakeFiles/lem_in.dir/src/validation.c.o.provides
-
-CMakeFiles/lem_in.dir/src/validation.c.o.provides.build: CMakeFiles/lem_in.dir/src/validation.c.o
-
-
 CMakeFiles/lem_in.dir/src/vp_ants.c.o: CMakeFiles/lem_in.dir/flags.make
 CMakeFiles/lem_in.dir/src/vp_ants.c.o: ../src/vp_ants.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/lem_in.dir/src/vp_ants.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/lem_in.dir/src/vp_ants.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lem_in.dir/src/vp_ants.c.o   -c /nfs/2016/v/vpoltave/lem-in/src/vp_ants.c
 
 CMakeFiles/lem_in.dir/src/vp_ants.c.i: cmake_force
@@ -179,7 +155,7 @@ CMakeFiles/lem_in.dir/src/vp_ants.c.o.provides.build: CMakeFiles/lem_in.dir/src/
 
 CMakeFiles/lem_in.dir/src/vp_useful.c.o: CMakeFiles/lem_in.dir/flags.make
 CMakeFiles/lem_in.dir/src/vp_useful.c.o: ../src/vp_useful.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/lem_in.dir/src/vp_useful.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/lem_in.dir/src/vp_useful.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lem_in.dir/src/vp_useful.c.o   -c /nfs/2016/v/vpoltave/lem-in/src/vp_useful.c
 
 CMakeFiles/lem_in.dir/src/vp_useful.c.i: cmake_force
@@ -203,7 +179,7 @@ CMakeFiles/lem_in.dir/src/vp_useful.c.o.provides.build: CMakeFiles/lem_in.dir/sr
 
 CMakeFiles/lem_in.dir/src/vp_useful_2.c.o: CMakeFiles/lem_in.dir/flags.make
 CMakeFiles/lem_in.dir/src/vp_useful_2.c.o: ../src/vp_useful_2.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/lem_in.dir/src/vp_useful_2.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/lem_in.dir/src/vp_useful_2.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lem_in.dir/src/vp_useful_2.c.o   -c /nfs/2016/v/vpoltave/lem-in/src/vp_useful_2.c
 
 CMakeFiles/lem_in.dir/src/vp_useful_2.c.i: cmake_force
@@ -227,7 +203,7 @@ CMakeFiles/lem_in.dir/src/vp_useful_2.c.o.provides.build: CMakeFiles/lem_in.dir/
 
 CMakeFiles/lem_in.dir/src/vp_useful_3.c.o: CMakeFiles/lem_in.dir/flags.make
 CMakeFiles/lem_in.dir/src/vp_useful_3.c.o: ../src/vp_useful_3.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/lem_in.dir/src/vp_useful_3.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/lem_in.dir/src/vp_useful_3.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lem_in.dir/src/vp_useful_3.c.o   -c /nfs/2016/v/vpoltave/lem-in/src/vp_useful_3.c
 
 CMakeFiles/lem_in.dir/src/vp_useful_3.c.i: cmake_force
@@ -247,6 +223,30 @@ CMakeFiles/lem_in.dir/src/vp_useful_3.c.o.provides: CMakeFiles/lem_in.dir/src/vp
 .PHONY : CMakeFiles/lem_in.dir/src/vp_useful_3.c.o.provides
 
 CMakeFiles/lem_in.dir/src/vp_useful_3.c.o.provides.build: CMakeFiles/lem_in.dir/src/vp_useful_3.c.o
+
+
+CMakeFiles/lem_in.dir/src/vp_validation.c.o: CMakeFiles/lem_in.dir/flags.make
+CMakeFiles/lem_in.dir/src/vp_validation.c.o: ../src/vp_validation.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/lem_in.dir/src/vp_validation.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lem_in.dir/src/vp_validation.c.o   -c /nfs/2016/v/vpoltave/lem-in/src/vp_validation.c
+
+CMakeFiles/lem_in.dir/src/vp_validation.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lem_in.dir/src/vp_validation.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/v/vpoltave/lem-in/src/vp_validation.c > CMakeFiles/lem_in.dir/src/vp_validation.c.i
+
+CMakeFiles/lem_in.dir/src/vp_validation.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lem_in.dir/src/vp_validation.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/v/vpoltave/lem-in/src/vp_validation.c -o CMakeFiles/lem_in.dir/src/vp_validation.c.s
+
+CMakeFiles/lem_in.dir/src/vp_validation.c.o.requires:
+
+.PHONY : CMakeFiles/lem_in.dir/src/vp_validation.c.o.requires
+
+CMakeFiles/lem_in.dir/src/vp_validation.c.o.provides: CMakeFiles/lem_in.dir/src/vp_validation.c.o.requires
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/vp_validation.c.o.provides.build
+.PHONY : CMakeFiles/lem_in.dir/src/vp_validation.c.o.provides
+
+CMakeFiles/lem_in.dir/src/vp_validation.c.o.provides.build: CMakeFiles/lem_in.dir/src/vp_validation.c.o
 
 
 CMakeFiles/lem_in.dir/libft/src/ft_printf/ft_printf.c.o: CMakeFiles/lem_in.dir/flags.make
@@ -1910,11 +1910,11 @@ lem_in_OBJECTS = \
 "CMakeFiles/lem_in.dir/src/debrec.c.o" \
 "CMakeFiles/lem_in.dir/src/main.c.o" \
 "CMakeFiles/lem_in.dir/src/main_algo.c.o" \
-"CMakeFiles/lem_in.dir/src/validation.c.o" \
 "CMakeFiles/lem_in.dir/src/vp_ants.c.o" \
 "CMakeFiles/lem_in.dir/src/vp_useful.c.o" \
 "CMakeFiles/lem_in.dir/src/vp_useful_2.c.o" \
 "CMakeFiles/lem_in.dir/src/vp_useful_3.c.o" \
+"CMakeFiles/lem_in.dir/src/vp_validation.c.o" \
 "CMakeFiles/lem_in.dir/libft/src/ft_printf/ft_printf.c.o" \
 "CMakeFiles/lem_in.dir/libft/src/ft_printf/vp_additional_function.c.o" \
 "CMakeFiles/lem_in.dir/libft/src/ft_printf/vp_big_fck_s.c.o" \
@@ -1991,11 +1991,11 @@ lem_in_EXTERNAL_OBJECTS =
 lem_in: CMakeFiles/lem_in.dir/src/debrec.c.o
 lem_in: CMakeFiles/lem_in.dir/src/main.c.o
 lem_in: CMakeFiles/lem_in.dir/src/main_algo.c.o
-lem_in: CMakeFiles/lem_in.dir/src/validation.c.o
 lem_in: CMakeFiles/lem_in.dir/src/vp_ants.c.o
 lem_in: CMakeFiles/lem_in.dir/src/vp_useful.c.o
 lem_in: CMakeFiles/lem_in.dir/src/vp_useful_2.c.o
 lem_in: CMakeFiles/lem_in.dir/src/vp_useful_3.c.o
+lem_in: CMakeFiles/lem_in.dir/src/vp_validation.c.o
 lem_in: CMakeFiles/lem_in.dir/libft/src/ft_printf/ft_printf.c.o
 lem_in: CMakeFiles/lem_in.dir/libft/src/ft_printf/vp_additional_function.c.o
 lem_in: CMakeFiles/lem_in.dir/libft/src/ft_printf/vp_big_fck_s.c.o
@@ -2079,11 +2079,11 @@ CMakeFiles/lem_in.dir/build: lem_in
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/src/debrec.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/src/main.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/src/main_algo.c.o.requires
-CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/src/validation.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/src/vp_ants.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/src/vp_useful.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/src/vp_useful_2.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/src/vp_useful_3.c.o.requires
+CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/src/vp_validation.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/libft/src/ft_printf/ft_printf.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/libft/src/ft_printf/vp_additional_function.c.o.requires
 CMakeFiles/lem_in.dir/requires: CMakeFiles/lem_in.dir/libft/src/ft_printf/vp_big_fck_s.c.o.requires

@@ -53,7 +53,7 @@ int		what_is_next(t_skrr *skrr, char **line, int start)
 	if (get_next_line(g_fd, line) > 0)
 		if (!(ft_strcmp("##end", *line)) || !(ft_strcmp("##start", *line)))
 			return (0);
-	if (!need_it(line, skrr))
+	if (!need_it(line))
 		return (0);
 	return (1);
 }

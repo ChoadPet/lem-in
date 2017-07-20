@@ -34,3 +34,9 @@
 //	ft_printf(" %d", skrr->end_room->x_coord);
 //	ft_printf(" %d\n", skrr->end_room->y_coord);
 //}
+
+//		ft_printf("queue[%d] = %d\n", d, queue[d]);
+//		ft_printf("room name -> %s\n", room->name);
+//			ft_printf("INSIDE -> queue[%d] = %d\n", i, queue[i]);
+//				ft_printf("room exit name -> %s\n", room->neighbors->neighb->name);
+//				ft_printf("found exit!\n");

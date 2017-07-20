@@ -30,7 +30,9 @@ void	init_func(t_skrr *skrr)
 	skrr->tmp = NULL; // TODO can delete it later
 	skrr->link = NULL;
 	skrr->room = NULL;
+	skrr->path = NULL;
 	g_info = NULL;
+	skrr->vertex = 0;
 }
 
 char 	*get_link(char *line)
@@ -67,13 +69,17 @@ char 	*get_name(char *line, char c)
 	return (name);
 }
 
-int 	x_y_coord(char *line, int is_x)
+long int	x_y_coord(char *line, int is_x)
 {
+	long int x;
+	long int y;
+
 	if (is_x)
 	{
 		while ((*line) && *line != ' ')
 			(line)++;
-		return ((int)ft_atoi(line));
+		x = ft_atoi(line);
+		return (x);
 	}
 	else
 	{
@@ -81,7 +87,8 @@ int 	x_y_coord(char *line, int is_x)
 			(line)++;
 		while (*line != ' ')
 			line--;
-		return ((int)ft_atoi(line));
+		y = ft_atoi(line);
+		return (y);
 	}
 }
 

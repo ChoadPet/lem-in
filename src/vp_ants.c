@@ -23,6 +23,7 @@ int 	fck_ants(t_skrr *skrr, char **line)
 	if ((skrr->ants < 0) || (skrr->ants > 2147483647))
 		return (0);
 	skrr->flag_an = 0;
+	ft_strdel(line);
 	return (1);
 }
 
@@ -45,7 +46,7 @@ int 	room_info(t_skrr *skrr, t_room **room, char **line)
 	if ((skrr->end == 1 && !(skrr->for_end)) && (skrr->for_end = 1))
 		skrr->end_name = get_name(*line, ' ');
 	if (**line != '#')
-		if (!push_room(room, line, ' '))
+		if (!push_room(room, line, ' ', skrr))
 			return (0);
 	return (1);
 }
@@ -68,7 +69,7 @@ int 	link_info(t_skrr *skrr, t_room **room, char **line, t_link **link)
 	return (1);
 }
 
-int		push_room(t_room **head, char **line, char c)
+int		push_room(t_room **head, char **line, char c, t_skrr *skrr)
 {
 	t_room *new_room;
 
@@ -78,8 +79,15 @@ int		push_room(t_room **head, char **line, char c)
 		return (0);
 	new_room->name = get_name(*line, c);
 	new_room->x_coord = x_y_coord(*line, 1);
+	if ((new_room->x_coord > 2147483647) || (new_room->x_coord < -2147483648))
+		return (0);
 	new_room->y_coord = x_y_coord(*line, 0);
+	if ((new_room->y_coord > 2147483647) || (new_room->y_coord < -2147483648))
+		return (0);
 	new_room->neighbors = NULL;
+	new_room->metka = -1;
+	new_room->index = skrr->vertex;
+	skrr->vertex++;
 	new_room->next = *head;
 	*head = new_room;
 	return (1);

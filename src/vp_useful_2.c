@@ -12,7 +12,7 @@
 
 #include "../includes/lem_in.h"
 
-int 	need_it(char **line, t_skrr *skrr)
+int 	need_it(char **line)
 {
 //	if (**line == '#' && *(*line + 1) != '#') // TODO needed it for hide comments
 //		return (1);
