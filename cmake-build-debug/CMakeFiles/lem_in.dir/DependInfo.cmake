@@ -76,6 +76,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/nfs/2016/v/vpoltave/lem-in/src/debrec.c" "/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/src/debrec.c.o"
   "/nfs/2016/v/vpoltave/lem-in/src/main.c" "/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/src/main.c.o"
   "/nfs/2016/v/vpoltave/lem-in/src/main_algo.c" "/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/src/main_algo.c.o"
+  "/nfs/2016/v/vpoltave/lem-in/src/main_algo_2.c" "/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/src/main_algo_2.c.o"
   "/nfs/2016/v/vpoltave/lem-in/src/vp_ants.c" "/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/src/vp_ants.c.o"
   "/nfs/2016/v/vpoltave/lem-in/src/vp_useful.c" "/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/src/vp_useful.c.o"
   "/nfs/2016/v/vpoltave/lem-in/src/vp_useful_2.c" "/nfs/2016/v/vpoltave/lem-in/cmake-build-debug/CMakeFiles/lem_in.dir/src/vp_useful_2.c.o"

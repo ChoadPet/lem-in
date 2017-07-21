@@ -307,6 +307,9 @@
 		<Unit filename="/nfs/2016/v/vpoltave/lem-in/src/main_algo.c">
 			<Option target="lem_in"/>
 		</Unit>
+		<Unit filename="/nfs/2016/v/vpoltave/lem-in/src/main_algo_2.c">
+			<Option target="lem_in"/>
+		</Unit>
 		<Unit filename="/nfs/2016/v/vpoltave/lem-in/src/vp_ants.c">
 			<Option target="lem_in"/>
 		</Unit>

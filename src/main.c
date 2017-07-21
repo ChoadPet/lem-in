@@ -39,7 +39,7 @@ int main()
 		skrr.end > 1) // TODO maybe don't need it, next row too
 		return (oops_error());
 	print_lists(g_info);
-	print_nei(skrr.room);
+//	print_nei(skrr.room);
 	if (bfs(&skrr, skrr.room))
 		get_my_path(&skrr, skrr.room, skrr.path);
 	ft_strdel(&line);

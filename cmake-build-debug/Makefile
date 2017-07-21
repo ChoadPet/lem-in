@@ -2067,6 +2067,33 @@ src/main_algo.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/main_algo.c.s
 .PHONY : src/main_algo.c.s
 
+src/main_algo_2.o: src/main_algo_2.c.o
+
+.PHONY : src/main_algo_2.o
+
+# target to build an object file
+src/main_algo_2.c.o:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/main_algo_2.c.o
+.PHONY : src/main_algo_2.c.o
+
+src/main_algo_2.i: src/main_algo_2.c.i
+
+.PHONY : src/main_algo_2.i
+
+# target to preprocess a source file
+src/main_algo_2.c.i:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/main_algo_2.c.i
+.PHONY : src/main_algo_2.c.i
+
+src/main_algo_2.s: src/main_algo_2.c.s
+
+.PHONY : src/main_algo_2.s
+
+# target to generate assembly for a file
+src/main_algo_2.c.s:
+	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/main_algo_2.c.s
+.PHONY : src/main_algo_2.c.s
+
 src/vp_ants.o: src/vp_ants.c.o
 
 .PHONY : src/vp_ants.o
@@ -2427,6 +2454,9 @@ help:
 	@echo "... src/main_algo.o"
 	@echo "... src/main_algo.i"
 	@echo "... src/main_algo.s"
+	@echo "... src/main_algo_2.o"
+	@echo "... src/main_algo_2.i"
+	@echo "... src/main_algo_2.s"
 	@echo "... src/vp_ants.o"
 	@echo "... src/vp_ants.i"
 	@echo "... src/vp_ants.s"

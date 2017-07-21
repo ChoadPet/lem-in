@@ -339,6 +339,12 @@ CMakeFiles/lem_in.dir/src/main_algo.c.o: ../libft/src/get_next_line/get_next_lin
 CMakeFiles/lem_in.dir/src/main_algo.c.o: ../libft/src/libft/libft.h
 CMakeFiles/lem_in.dir/src/main_algo.c.o: ../src/main_algo.c
 
+CMakeFiles/lem_in.dir/src/main_algo_2.c.o: ../includes/lem_in.h
+CMakeFiles/lem_in.dir/src/main_algo_2.c.o: ../libft/src/ft_printf/ft_printf.h
+CMakeFiles/lem_in.dir/src/main_algo_2.c.o: ../libft/src/get_next_line/get_next_line.h
+CMakeFiles/lem_in.dir/src/main_algo_2.c.o: ../libft/src/libft/libft.h
+CMakeFiles/lem_in.dir/src/main_algo_2.c.o: ../src/main_algo_2.c
+
 CMakeFiles/lem_in.dir/src/vp_ants.c.o: ../includes/lem_in.h
 CMakeFiles/lem_in.dir/src/vp_ants.c.o: ../libft/src/ft_printf/ft_printf.h
 CMakeFiles/lem_in.dir/src/vp_ants.c.o: ../libft/src/get_next_line/get_next_line.h

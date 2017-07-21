@@ -68,7 +68,7 @@ int 	print_nei(t_room *room)
 	t_neighbors	*first;
 
 	current = room;
-	ft_printf("---------------------links---------------------");
+	ft_printf("---------------------LINKS---------------------");
 	while (current)
 	{
 		ft_printf("\n%s -> ", current->name);

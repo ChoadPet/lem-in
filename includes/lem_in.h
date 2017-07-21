@@ -81,6 +81,8 @@ typedef struct		s_skrr
 	char			*start_name;
 	char			*end_name;
 	int 			vertex;
+	int 			i;
+	int 			n;
 	t_room			*current;
 	t_room			*tmp;
 	t_neighbors		*neighb;
@@ -115,13 +117,14 @@ int 				found_links(t_skrr *skrr, char *line);
 int 				get_neighbor(t_skrr *skrr, t_room *room, t_link *link);
 int 				push_neighbor(t_neighbors **neighbor, t_room *current);
 int					second_neighbor(t_neighbors *neighbors, t_room *current);
-int 				make_start(t_room **room, t_skrr *skrr);
+t_room 				*make_start(t_room *tmp, t_skrr *skrr);
 int					bfs(t_skrr *skrr, t_room *room);
 int 				get_index(t_room *room, int d);
-t_room				*get_room(t_room *head, int d);
+t_room				*get_room(t_room *head, int d, t_skrr *skrr);
 int 				get_my_path(t_skrr *skrr, t_room *room, t_path *path);
 int 				push_path(t_path **path, t_neighbors *neighbors);
 t_room				*next_neighb(int index, t_room *head);
+int					fck_neighbors(t_neighbors *neighbors, t_skrr *skrr, int *queue);
 
 //tmp fucntions
 void				print_lists(t_info *head);
