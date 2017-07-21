@@ -38,10 +38,10 @@ int main()
 	if ((!skrr.start || !skrr.end) || (!skrr.found_links) || skrr.start > 1 ||
 		skrr.end > 1) // TODO maybe don't need it, next row too
 		return (oops_error());
-//	print_lists(g_info);
+	print_lists(g_info);
+	print_nei(skrr.room);
 	if (bfs(&skrr, skrr.room))
-		get_my_path(&skrr, skrr.room);
-//	print_nei(skrr.room);
+		get_my_path(&skrr, skrr.room, skrr.path);
 	ft_strdel(&line);
 	close (g_fd); // TODO delete this before finish the project
 	return (0);

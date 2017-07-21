@@ -23,17 +23,42 @@ int 	make_start(t_room **room, t_skrr *skrr)
 	return (0);
 }
 
-int 	get_my_path(t_skrr *skrr, t_room *room)
+t_room	*next_neighb(int index, t_room *head)
 {
-	t_room *head;
+	while (head)
+	{
+		if (head->index == index)
+			return (head);
+		head = head->next;
+	}
+	return (NULL);
+}
+
+int 	get_my_path(t_skrr *skrr, t_room *room, t_path *path)
+{
+	t_room 	*head;
+	t_room 	*tmp;
+	int 	index;
 
 	head = room;
 	while (ft_strcmp(room->name, skrr->end_name))
 		room = room->next;
-	while ((ft_strcmp(head->name, skrr->start_name)))
+	index = room->index;
+	while (ft_strcmp(room->name, skrr->start_name))
 	{
-		// TODO inside this while i should create path list. Check wiki for more info
-		head = head->next;
+		room = next_neighb(index, head);
+		while (room->neighbors)
+		{
+			if (room->metka - 1 == room->neighbors->neighb->metka)
+			{
+				if (!(push_path(&path, room->neighbors)))
+					return (0);
+				ft_printf("path: [%s] -> ", path->name);
+				index = room->neighbors->neighb->index;
+			}
+			room->neighbors = room->neighbors->next;
+		}
+		room = room->next;
 	}
 	return (0);
 }
@@ -44,6 +69,7 @@ int		bfs(t_skrr *skrr, t_room *room)
 	t_room	*head;
 	int 	i;
 	int 	d;
+	int 	n;
 
 	head = room;
 	if (!make_start(&room, skrr))
@@ -54,12 +80,13 @@ int		bfs(t_skrr *skrr, t_room *room)
 	{
 		queue[d] = (i == 1) ? (room->index) : (get_index(head, queue[d]));
 		room = get_room(head, d);
+		n = room->metka;
 		while (room->neighbors)
 		{
 			if (room->neighbors->neighb->metka == -1)
 			{
 				queue[i] = room->neighbors->neighb->index;
-				room->neighbors->neighb->metka = d + 1;
+				room->neighbors->neighb->metka = n + 1;
 				i++;
 			}
 			if (!(ft_strcmp(room->neighbors->neighb->name, skrr->end_name)) &&
@@ -70,6 +97,18 @@ int		bfs(t_skrr *skrr, t_room *room)
 		d++;
 	}
 	return (0);
+}
+
+int 	push_path(t_path **path, t_neighbors *neighbors)
+{
+	t_path *new_path;
+
+	if (!(new_path = (t_path *)malloc(sizeof(t_path))))
+		return (0);
+	new_path->name = neighbors->neighb->name;
+	new_path->next = *path;
+	*path = new_path;
+	return (1);
 }
 
 t_room	*get_room(t_room *head, int d)
