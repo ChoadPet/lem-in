@@ -54,3 +54,8 @@
 //	}
 //	return (0);
 //}
+
+
+//	if ((i == 0) && (ft_strlen(*s) == 0))
+//		return (0);
+//	return (1);

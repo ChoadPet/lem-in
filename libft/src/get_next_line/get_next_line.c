@@ -36,9 +36,7 @@ int		where_is_smth(int fd, char **line, char **s, char *buff)
 			return (1);
 		}
 	}
-	if ((i == 0) && (ft_strlen(*s) == 0))
-		return (0);
-	return (1);
+	return ((i == 0) && (ft_strlen(*s) == 0)) ? 0 : 1;
 }
 
 char	**where_is_bacon(const int fd, t_bacon **bacon)

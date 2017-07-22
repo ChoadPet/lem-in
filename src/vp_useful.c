@@ -15,7 +15,7 @@
 void	init_func(t_skrr *skrr)
 {
 	skrr->flag_an = -1;
-	skrr->counts_ants = 0;
+	skrr->counts_ants = -1;
 	skrr->start = 0;
 	skrr->end = 0;
 	skrr->for_start = 0;
@@ -39,6 +39,7 @@ void	init_func(t_skrr *skrr)
 char 	*get_link(char *line)
 {
 	char 	*name;
+	char 	*tmp;
 	int 	i;
 
 	i = -1;
@@ -50,7 +51,9 @@ char 	*get_link(char *line)
 		line++;
 	}
 	name = ft_strnew((size_t)i);
+	tmp = name;
 	ft_strncpy(name, line - i, (size_t)i);
+	ft_strdel(&tmp);
 	return (name);
 }
 
@@ -103,5 +106,6 @@ void	print_lists(t_info *head)
 		ft_printf("%s\n", current->info);
 		current = current->next;
 	}
+	ft_printf("\n");
 }
 

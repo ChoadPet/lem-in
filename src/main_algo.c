@@ -54,17 +54,20 @@ int		bfs(t_skrr *skrr, t_room *room)
 
 int		fck_neighbors(t_neighbors *neighbors, t_skrr *skrr, int *queue)
 {
-	while (neighbors)
+	t_neighbors *tmp;
+
+	tmp = neighbors;
+	while (tmp)
 	{
-		if (neighbors->neighb->metka == -1)
+		if (tmp->neighb->metka == -1)
 		{
-			queue[skrr->i++] = neighbors->neighb->index;
-			neighbors->neighb->metka = skrr->n + 1;
+			queue[skrr->i++] = tmp->neighb->index;
+			tmp->neighb->metka = skrr->n + 1;
 		}
-		if (!(ft_strcmp(neighbors->neighb->name, skrr->end_name)) &&
-			neighbors->neighb->metka != -1)
+		if (!(ft_strcmp(tmp->neighb->name, skrr->end_name)) &&
+				tmp->neighb->metka != -1)
 			return (1);
-		neighbors = neighbors->next;
+		tmp = tmp->next;
 	}
 	return (0);
 }

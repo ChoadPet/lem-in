@@ -12,16 +12,17 @@
 
 #include "../includes/lem_in.h"
 
-int 	ants(t_path *path, t_skrr *skrr)
+void 	ants(t_path *path, t_skrr *skrr)
 {
 	t_path *head;
 	t_path *tmp;
 
 	head = path;
+	skrr->i = 0;
 	while (ft_strcmp(head->name, skrr->start_name))
 		head = head->next;
 	head->ant_here = 1;
-	while (skrr->counts_ants < skrr->ants)
+	while (++skrr->counts_ants < skrr->ants)
 	{
 		tmp = path;
 		while (tmp->next)
@@ -29,23 +30,43 @@ int 	ants(t_path *path, t_skrr *skrr)
 			if (tmp->next->ant_here && (tmp->ant_here = 1))
 			{
 				tmp->ant_number = (int)skrr->ants - tmp->all_ants + 1;
+				skrr->i = tmp->ant_number;
 				ft_printf("L%d-%s ", tmp->ant_number, tmp->name);
 				tmp->all_ants--;
 			}
 			tmp = tmp->next;
 		}
-		write(1, "\n", 1);
-		skrr->counts_ants++;
+		ft_printf("\n");
 	}
+	end_way(tmp, path, skrr);
+}
+
+void	end_way(t_path *tmp, t_path *path, t_skrr *skrr)
+{
+	t_path *kos;
+
 	tmp = path;
-	while (tmp->next)
+	while (ft_strcmp(tmp->name, skrr->start_name))
 		tmp = tmp->next;
 	tmp->ant_here = 0;
-	while (skrr->ants)
+	while (skrr->i)
 	{
 		tmp = path;
-
-		skrr->ants--;
+		(skrr->ants == 1) ? kos = tmp : 0;
+		while (tmp->next)
+		{
+			if (tmp->next->ant_here)
+			{
+				tmp->ant_number = (int)skrr->ants - tmp->all_ants + 1;
+				ft_printf("L%d-%s ", tmp->ant_number, tmp->name);
+				tmp->all_ants--;
+			}
+			else
+				tmp->ant_here = 0;
+			tmp = tmp->next;
+		}
+		skrr->i - skrr->ants >= 0 ? ft_printf("\n") : 0;
+		(skrr->ants == 1) ? ft_printf("L1-%s ", kos->name) : 0;
+		skrr->i--;
 	}
-	return (1);
 }

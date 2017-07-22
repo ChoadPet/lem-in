@@ -103,6 +103,7 @@ t_info				*g_info;
 */
 
 int					fck_ants(t_skrr *skrr, char **line);
+int					second_main(char **line, t_skrr *skrr);
 int					oops_error(void);
 int					room_info(t_skrr *skrr, t_room **room, char **line);
 int 				link_info(t_skrr *skrr, t_room **room, char **line, t_link **link);
@@ -131,7 +132,8 @@ int 				push_path(t_path **path, t_neighbors *neighbors, t_room *tmp, t_skrr *sk
 t_room				*next_neighb(int index, t_room *head);
 int					fck_neighbors(t_neighbors *neighbors, t_skrr *skrr, int *queue);
 int 				best_neighbors(t_path **path, t_skrr *skrr, t_room *tmp);
-int 				ants(t_path *path, t_skrr *skrr);
+void 				ants(t_path *path, t_skrr *skrr);
+void				end_way(t_path *tmp, t_path *path, t_skrr *skrr);
 
 //tmp fucntions
 void				print_lists(t_info *head);
