@@ -20,10 +20,12 @@ int main()
 
 	g_fd = open("test_1", O_RDONLY);
 	(g_fd < 0) ? perror("fd error") : 0;
+//	g_fd = 0;
 	init_func(&skrr);
 	while (get_next_line(g_fd, &line) > 0)
 	{
-		second_main(&line, &skrr);
+		if (!second_main(&line, &skrr))
+			return (oops_error());
 	}
 	if ((!skrr.start || !skrr.end) || (!skrr.found_links) || skrr.start > 1 ||
 		skrr.end > 1) // TODO maybe don't need it, next row too

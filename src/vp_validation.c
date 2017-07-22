@@ -74,16 +74,17 @@ int 	rooms_comp(t_room *room, char *line)
 
 int		second_main(char **line, t_skrr *skrr)
 {
-	if (!need_it(&line))
+	if (!need_it(line))
 		return (oops_error());
-	if (skrr->flag_an == 0 && (found_room(&skrr, line)))
-		if (!(room_info(&skrr, &skrr->room, &line)))
+	if (skrr->flag_an == 0 && (found_room(skrr, *line)))
+		if (!(room_info(skrr, &skrr->room, line)))
 			return (oops_error());
-	if (found_links(&skrr, line))
-		if (!(link_info(&skrr, &skrr->room, &line, &skrr->link)))
+	if (found_links(skrr, *line))
+		if (!(link_info(skrr, &skrr->room, line, &skrr->link)))
 			return (oops_error());
 	if (skrr->flag_an == -1) // TODO need to find place, where to put main algo
-		if (!(fck_ants(&skrr, &line)))
+		if (!(fck_ants(skrr, line)))
 			return (oops_error());
-	ft_strdel(&line);
+	ft_strdel(line);
+	return (1);
 }

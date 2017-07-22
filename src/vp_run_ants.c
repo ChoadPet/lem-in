@@ -69,4 +69,5 @@ void	end_way(t_path *tmp, t_path *path, t_skrr *skrr)
 		(skrr->ants == 1) ? ft_printf("L1-%s ", kos->name) : 0;
 		skrr->i--;
 	}
+	ft_printf("\n");
 }
