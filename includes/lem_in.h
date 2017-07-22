@@ -83,6 +83,8 @@ typedef struct		s_skrr
 	int 			vertex;
 	int 			i;
 	int 			n;
+	int 			break_flag;
+	int 			index;
 	t_room			*current;
 	t_room			*tmp;
 	t_neighbors		*neighb;
@@ -119,8 +121,7 @@ int 				push_neighbor(t_neighbors **neighbor, t_room *current);
 int					second_neighbor(t_neighbors *neighbors, t_room *current);
 t_room 				*make_start(t_room *tmp, t_skrr *skrr);
 int					bfs(t_skrr *skrr, t_room *room);
-int 				get_index(t_room *room, int d);
-t_room				*get_room(t_room *head, int d, t_skrr *skrr);
+t_room				*get_room(t_room *head, int d);
 int 				get_my_path(t_skrr *skrr, t_room *room, t_path *path);
 int 				push_path(t_path **path, t_neighbors *neighbors);
 t_room				*next_neighb(int index, t_room *head);

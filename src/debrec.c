@@ -40,3 +40,17 @@
 //			ft_printf("INSIDE -> queue[%d] = %d\n", i, queue[i]);
 //				ft_printf("room exit name -> %s\n", room->neighbors->neighb->name);
 //				ft_printf("found exit!\n");
+
+//int 	get_index(t_room *room, int d)
+//{
+//	t_room *tmp;
+//
+//	tmp = room;
+//	while (tmp)
+//	{
+//		if (tmp->index == d)
+//			return (d);
+//		tmp = tmp->next;
+//	}
+//	return (0);
+//}

@@ -42,6 +42,8 @@ int main()
 //	print_nei(skrr.room);
 	if (bfs(&skrr, skrr.room))
 		get_my_path(&skrr, skrr.room, skrr.path);
+	else
+		return (oops_error());
 	ft_strdel(&line);
 	close (g_fd); // TODO delete this before finish the project
 	return (0);

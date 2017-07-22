@@ -36,17 +36,18 @@ int		bfs(t_skrr *skrr, t_room *room)
 
 	head = room;
 	tmp = make_start(room, skrr);
-	d = 0;
+	d = -1;
 	skrr->i = 1;
-	while (d < skrr->vertex)
+	while (++d < skrr->vertex)
 	{
 		(skrr->i == 1) ? tmp->metka = 0 : 0;
-		(skrr->i != 1) ? tmp = get_room(head, queue[d], skrr) : 0;
+		(skrr->i != 1) ? tmp = get_room(head, queue[d]) : 0;
+		if (tmp == NULL)
+			return (0);
 		queue[d] = (skrr->i == 1) ? (tmp->index) : 0;
 		skrr->n = tmp->metka;
 		if (fck_neighbors(tmp->neighbors, skrr, queue))
 			return (1);
-		d++;
 	}
 	return (0);
 }
@@ -68,7 +69,7 @@ int		fck_neighbors(t_neighbors *neighbors, t_skrr *skrr, int *queue)
 	return (0);
 }
 
-t_room	*get_room(t_room *head, int d, t_skrr *skrr)
+t_room	*get_room(t_room *head, int d)
 {
 	t_room *tmp;
 
@@ -81,17 +82,3 @@ t_room	*get_room(t_room *head, int d, t_skrr *skrr)
 	}
 	return (NULL);
 }
-
-//int 	get_index(t_room *room, int d)
-//{
-//	t_room *tmp;
-//
-//	tmp = room;
-//	while (tmp)
-//	{
-//		if (tmp->index == d)
-//			return (d);
-//		tmp = tmp->next;
-//	}
-//	return (0);
-//}
