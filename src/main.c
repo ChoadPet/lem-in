@@ -34,6 +34,7 @@ int main()
 		if (skrr.flag_an == -1) // TODO need to find place, where to put main algo
 			if (!(fck_ants(&skrr, &line)))
 				return (oops_error());
+		ft_strdel(&line);
 	}
 	if ((!skrr.start || !skrr.end) || (!skrr.found_links) || skrr.start > 1 ||
 		skrr.end > 1) // TODO maybe don't need it, next row too
@@ -41,7 +42,7 @@ int main()
 	print_lists(g_info);
 //	print_nei(skrr.room);
 	if (bfs(&skrr, skrr.room))
-		get_my_path(&skrr, skrr.room, skrr.path);
+		get_my_path(&skrr, skrr.room, &skrr.path);
 	else
 		return (oops_error());
 	ft_strdel(&line);

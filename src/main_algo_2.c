@@ -24,47 +24,64 @@ t_room	*next_neighb(int index, t_room *head)
 	return (NULL);
 }
 
-int 	get_my_path(t_skrr *skrr, t_room *room, t_path *path)
+int 	get_my_path(t_skrr *skrr, t_room *room, t_path **path)
 {
 	t_room 	*head;
 	t_room 	*tmp;
 
 	head = room;
-	while (ft_strcmp(room->name, skrr->end_name))
-		room = room->next;
-	skrr->index = room->index;
-	ft_printf("[%s]", room->name);
-	while (ft_strcmp(room->name, skrr->start_name))
+	tmp = room;
+	while (ft_strcmp(tmp->name, skrr->end_name))
+		tmp = tmp->next;
+	push_path(path, tmp->neighbors, tmp, skrr);
+	skrr->index = tmp->index;
+	while (ft_strcmp(tmp->name, skrr->start_name))
 	{
-		skrr->break_flag = 0;
-		room = next_neighb(skrr->index, head);
-		while (room->neighbors)
-		{
-			if (room->metka - 1 == room->neighbors->neighb->metka)
-			{
-				if (!(push_path(&path, room->neighbors)))
-					return (0);
-				ft_printf(" -> [%s] ", path->name);
-				skrr->index = room->neighbors->neighb->index;
-				skrr->break_flag = 1;
-			}
-			if (skrr->break_flag == 1)
-				break ;
-			room->neighbors = room->neighbors->next;
-		}
+		tmp = next_neighb(skrr->index, head);
+		if (!(best_neighbors(path, skrr, tmp)))
+			return (0);
 	}
-	return (0);
+	ants(*path,skrr);
+	return (1);
 }
 
-int 	push_path(t_path **path, t_neighbors *neighbors)
+int 	best_neighbors(t_path **path, t_skrr *skrr, t_room *tmp)
+{
+	while (tmp->neighbors)
+	{
+		if (tmp->metka - 1 == tmp->neighbors->neighb->metka)
+		{
+			if (!(push_path(path, tmp->neighbors, NULL, skrr)))
+				return (0);
+			skrr->index = tmp->neighbors->neighb->index;
+			return (1);
+		}
+		tmp->neighbors = tmp->neighbors->next;
+	}
+	return (1);
+}
+
+int 	push_path(t_path **path, t_neighbors *neighbors, t_room *tmp, t_skrr *skrr)
 {
 	t_path *new_path;
+	t_path *current;
 
 	if (!(new_path = (t_path *)malloc(sizeof(t_path))))
 		return (0);
-	new_path->name = neighbors->neighb->name;
-	new_path->next = *path;
-	*path = new_path;
+	new_path->name = (tmp == NULL) ? (neighbors->neighb->name) : (tmp->name);
+	new_path->ant_here = 0;
+	new_path->ant_number = 0;
+	new_path->all_ants = (int)skrr->ants;
+	new_path->next = NULL;
+	if (*path == NULL)
+		*path = new_path;
+	else
+	{
+		current = *path;
+		while (current->next)
+			current = current->next;
+		current->next = new_path;
+	}
 	return (1);
 }
 

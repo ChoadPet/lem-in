@@ -15,6 +15,7 @@
 void	init_func(t_skrr *skrr)
 {
 	skrr->flag_an = -1;
+	skrr->counts_ants = 0;
 	skrr->start = 0;
 	skrr->end = 0;
 	skrr->for_start = 0;

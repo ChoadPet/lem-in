@@ -49,6 +49,9 @@ typedef struct 			s_link
 typedef struct			s_path
 {
 	char 				*name;
+	int 				ant_here;
+	int 				ant_number;
+	int 				all_ants;
 	struct s_path		*next;
 }						t_path;
 
@@ -69,6 +72,7 @@ typedef struct 			s_info
 typedef struct		s_skrr
 {
 	long int		ants;
+	int 			counts_ants;
 	int 			flag_an;
 	int 			start;
 	int 			end;
@@ -83,7 +87,6 @@ typedef struct		s_skrr
 	int 			vertex;
 	int 			i;
 	int 			n;
-	int 			break_flag;
 	int 			index;
 	t_room			*current;
 	t_room			*tmp;
@@ -93,10 +96,11 @@ typedef struct		s_skrr
 	t_path			*path;
 }					t_skrr;
 
+t_info				*g_info;
+
 /*
 ** functions for lem_in
 */
-t_info				*g_info;
 
 int					fck_ants(t_skrr *skrr, char **line);
 int					oops_error(void);
@@ -122,10 +126,12 @@ int					second_neighbor(t_neighbors *neighbors, t_room *current);
 t_room 				*make_start(t_room *tmp, t_skrr *skrr);
 int					bfs(t_skrr *skrr, t_room *room);
 t_room				*get_room(t_room *head, int d);
-int 				get_my_path(t_skrr *skrr, t_room *room, t_path *path);
-int 				push_path(t_path **path, t_neighbors *neighbors);
+int 				get_my_path(t_skrr *skrr, t_room *room, t_path **path);
+int 				push_path(t_path **path, t_neighbors *neighbors, t_room *tmp, t_skrr *skrr);
 t_room				*next_neighb(int index, t_room *head);
 int					fck_neighbors(t_neighbors *neighbors, t_skrr *skrr, int *queue);
+int 				best_neighbors(t_path **path, t_skrr *skrr, t_room *tmp);
+int 				ants(t_path *path, t_skrr *skrr);
 
 //tmp fucntions
 void				print_lists(t_info *head);

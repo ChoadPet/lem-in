@@ -351,6 +351,12 @@ CMakeFiles/lem_in.dir/src/vp_ants.c.o: ../libft/src/get_next_line/get_next_line.
 CMakeFiles/lem_in.dir/src/vp_ants.c.o: ../libft/src/libft/libft.h
 CMakeFiles/lem_in.dir/src/vp_ants.c.o: ../src/vp_ants.c
 
+CMakeFiles/lem_in.dir/src/vp_run_ants.c.o: ../includes/lem_in.h
+CMakeFiles/lem_in.dir/src/vp_run_ants.c.o: ../libft/src/ft_printf/ft_printf.h
+CMakeFiles/lem_in.dir/src/vp_run_ants.c.o: ../libft/src/get_next_line/get_next_line.h
+CMakeFiles/lem_in.dir/src/vp_run_ants.c.o: ../libft/src/libft/libft.h
+CMakeFiles/lem_in.dir/src/vp_run_ants.c.o: ../src/vp_run_ants.c
+
 CMakeFiles/lem_in.dir/src/vp_useful.c.o: ../includes/lem_in.h
 CMakeFiles/lem_in.dir/src/vp_useful.c.o: ../libft/src/ft_printf/ft_printf.h
 CMakeFiles/lem_in.dir/src/vp_useful.c.o: ../libft/src/get_next_line/get_next_line.h
