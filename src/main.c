@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h> // TODO delete this before finish the project
 #include "../includes/lem_in.h"
 
 int main()
@@ -18,25 +17,19 @@ int main()
 	char 	*line;
 	t_skrr	skrr;
 
-	g_fd = open("test_1", O_RDONLY);
-	(g_fd < 0) ? perror("fd error") : 0;
-//	g_fd = 0;
+	line = NULL;
 	init_func(&skrr);
-	while (get_next_line(g_fd, &line) > 0)
-	{
+	while (get_next_line(0, &line) > 0)
 		if (!second_main(&line, &skrr))
-			return (oops_error());
-	}
+			return (0);
 	if ((!skrr.start || !skrr.end) || (!skrr.found_links) || skrr.start > 1 ||
 		skrr.end > 1) // TODO maybe don't need it, next row too
 		return (oops_error());
-	print_lists(g_info);
 	if (bfs(&skrr, skrr.room))
 		get_my_path(&skrr, skrr.room, &skrr.path);
 	else
 		return (oops_error());
 	ft_strdel(&line);
-	close (g_fd); // TODO delete this before finish the project
 	return (0);
 }
 

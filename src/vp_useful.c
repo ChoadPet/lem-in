@@ -24,6 +24,7 @@ void	init_func(t_skrr *skrr)
 	skrr->found_links = 0;
 	skrr->name_1 = 0;
 	skrr->name_2 = 0;
+	skrr->flag = 0;
 	skrr->start_name = NULL;
 	skrr->end_name = NULL;
 	skrr->neighb = NULL;
@@ -39,7 +40,6 @@ void	init_func(t_skrr *skrr)
 char 	*get_link(char *line)
 {
 	char 	*name;
-	char 	*tmp;
 	int 	i;
 
 	i = -1;
@@ -51,9 +51,7 @@ char 	*get_link(char *line)
 		line++;
 	}
 	name = ft_strnew((size_t)i);
-	tmp = name;
 	ft_strncpy(name, line - i, (size_t)i);
-	ft_strdel(&tmp);
 	return (name);
 }
 
@@ -63,7 +61,7 @@ char 	*get_name(char *line, char c)
 	size_t 	i;
 
 	i = 0;
-	while ((*line) && (*line != c))
+	while (line && (*line != c))
 	{
 		line++;
 		i++;
@@ -106,6 +104,5 @@ void	print_lists(t_info *head)
 		ft_printf("%s\n", current->info);
 		current = current->next;
 	}
-	ft_printf("\n");
 }
 

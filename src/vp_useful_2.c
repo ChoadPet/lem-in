@@ -14,11 +14,6 @@
 
 int 	need_it(char **line)
 {
-//	if (**line == '#' && *(*line + 1) != '#') // TODO needed it for hide comments
-//		return (1);
-//	if ((ft_strcmp("##end", *line)) && (ft_strcmp("##start", *line)) &&
-//		(!(ft_strncmp("##", *line, 2))))
-//		return (1);
 	push_to_end(line);
 	return (1);
 }
@@ -29,8 +24,6 @@ int 	push_to_end(char **line)
 	t_info *new_room;
 	t_info *current;
 
-//	if (**line == '#' && *(*line + 1) != '#') // TODO needed it for hide comments
-//		return (1);
 	if (!(new_room = (t_info *)malloc(sizeof(t_info))))
 		return (0);
 	new_room->info = ft_strdup(*line);
@@ -54,10 +47,10 @@ int 	should_i(t_skrr *skrr, t_room *room, char *line)
 
 	if ((ft_strchr(line, ' ')) || (*line == 'L'))
 		return (0);
-	n1 = get_name(line, '-');
+	n1 = get_name(line, '-', skrr);
 	while (*line != '-')
 		(line)++;
-	n2 = get_name((line + 1), 0);
+	n2 = get_name((line + 1), 0, skrr);
 	skrr->name_1 = 0;
 	skrr->name_2 = 0;
 	while (room)
@@ -66,6 +59,8 @@ int 	should_i(t_skrr *skrr, t_room *room, char *line)
 		(!(ft_strcmp(room->name, n2))) ? (skrr->name_2 = 1) : 0;
 		room = room->next;
 	}
+	ft_strdel(&n1);
+	ft_strdel(&n2);
 	return ((skrr->name_1 && skrr->name_2) ? 1 : 0);
 }
 

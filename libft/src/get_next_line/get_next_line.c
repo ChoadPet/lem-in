@@ -60,9 +60,11 @@ char	**where_is_bacon(const int fd, t_bacon **bacon)
 
 void	where_is_n(char **s, char **line)
 {
-	int i;
+	int 	i;
+	char 	*tmp;
 
 	i = 0;
+	tmp = *s;
 	while (**s != '\n')
 	{
 		(*s)++;
@@ -72,6 +74,7 @@ void	where_is_n(char **s, char **line)
 	*line = ft_strsub(*s, 0, (size_t)i);
 	*s += i + 1;
 	*s = ft_strsub(*s, 0, ft_strlen(*s));
+	ft_strdel(&tmp);
 }
 
 int		get_next_line(const int fd, char **line)
@@ -79,10 +82,12 @@ int		get_next_line(const int fd, char **line)
 	char			*buff;
 	static t_bacon	*bacon;
 	char			**s;
+	int 			i;
 
 	buff = ft_strnew(BUFF_SIZE);
 	if ((fd < 0) || ((read(fd, buff, 0)) < 0) || (BUFF_SIZE <= 0))
 		return (-1);
 	s = where_is_bacon(fd, &bacon);
-	return (where_is_smth(fd, line, s, buff));
+	i = where_is_smth(fd, line, s, buff);
+	return (i);
 }

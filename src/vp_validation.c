@@ -49,6 +49,7 @@ int 	two_spaces_start(t_skrr *skrr, char *line)
 
 int		what_is_next(t_skrr *skrr, char **line, int start)
 {
+	ft_strdel(line);
 	(start) ? skrr->start++ : skrr->end++;
 	if (get_next_line(g_fd, line) > 0)
 		if (!(ft_strcmp("##end", *line)) || !(ft_strcmp("##start", *line)))
@@ -58,17 +59,24 @@ int		what_is_next(t_skrr *skrr, char **line, int start)
 	return (1);
 }
 
-int 	rooms_comp(t_room *room, char *line)
+int 	rooms_comp(t_room *room, char *line, t_skrr *skrr)
 {
+	char *tmp;
+
+	tmp = get_name(line, ' ', skrr);
 	while (room != NULL)
 	{
-		if (!ft_strcmp(room->name, get_name(line, ' ')))
+		if (!ft_strcmp(room->name, tmp))
+		{
+			ft_strdel(&tmp);
 			return (0);
+		}
 		if ((room->x_coord == x_y_coord(line, 1)) &&
 				(room->y_coord == x_y_coord(line, 0)))
 			return (0);
 		room = room->next;
 	}
+	ft_strdel(&tmp);
 	return (1);
 }
 

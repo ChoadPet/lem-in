@@ -61,24 +61,3 @@ int		second_neighbor(t_neighbors *neighbors, t_room *current)
 	}
 	return (0);
 }
-
-int 	print_nei(t_room *room)
-{
-	t_room 		*current;
-	t_neighbors	*first;
-
-	current = room;
-	ft_printf("---------------------LINKS---------------------");
-	while (current)
-	{
-		ft_printf("\n%s -> ", current->name);
-		first = current->neighbors;
-		while (first)
-		{
-			ft_printf("[%s]", first->neighb->name);
-			first = first->next;
-		}
-		current = current->next;
-	}
-	return (1);
-}

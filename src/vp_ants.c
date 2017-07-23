@@ -15,7 +15,7 @@
 int 	fck_ants(t_skrr *skrr, char **line)
 {
 	if ((!(ft_strcmp("##start", *line))) || !(ft_strcmp("##end", *line)) ||
-			(ft_strchr(*line, '-') || (**line == '\0')))
+			(ft_strchr(*line, '-') || (**line == '\0')) || **line == ' ')
 		return (0);
 	if (**line == '#')
 		return (1);
@@ -62,7 +62,7 @@ int 	link_info(t_skrr *skrr, t_room **room, char **line, t_link **link)
 	if (!should_i(skrr, *room, *line))
 		return (0);
 	if (**line != '#')
-		if (!push_link(link, line, '-'))
+		if (!push_link(link, line, '-', skrr))
 			return (0);
 	if (!get_neighbor(skrr, *room, *link)) // TODO this func have to create pointer in current room to his neighbors
 		return (0);
@@ -75,7 +75,7 @@ int		push_room(t_room **head, char **line, char c, t_skrr *skrr)
 
 	if (!(new_room = (t_room *)malloc(sizeof(t_room))))
 		return (0);
-	if (!rooms_comp(*head, *line))
+	if (!rooms_comp(*head, *line, skrr))
 		return (0);
 	new_room->name = get_name(*line, c);
 	new_room->x_coord = x_y_coord(*line, 1);
@@ -93,7 +93,7 @@ int		push_room(t_room **head, char **line, char c, t_skrr *skrr)
 	return (1);
 }
 
-int		push_link(t_link **link, char **line, char c)
+int		push_link(t_link **link, char **line, char c, t_skrr *skrr)
 {
 	t_link *new_link;
 

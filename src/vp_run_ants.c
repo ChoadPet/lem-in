@@ -44,30 +44,55 @@ void 	ants(t_path *path, t_skrr *skrr)
 void	end_way(t_path *tmp, t_path *path, t_skrr *skrr)
 {
 	t_path *kos;
+	t_room 	*curr;
 
 	tmp = path;
 	while (ft_strcmp(tmp->name, skrr->start_name))
 		tmp = tmp->next;
 	tmp->ant_here = 0;
+	curr = skrr->room;
+	while (ft_strcmp(curr->name, skrr->end_name))
+		curr = curr->next;
+	start_end(curr->neighbors, skrr);
+	if (skrr->flag == 1)
+			return ;
 	while (skrr->i)
 	{
 		tmp = path;
 		(skrr->ants == 1) ? kos = tmp : 0;
-		while (tmp->next)
-		{
-			if (tmp->next->ant_here)
-			{
-				tmp->ant_number = (int)skrr->ants - tmp->all_ants + 1;
-				ft_printf("L%d-%s ", tmp->ant_number, tmp->name);
-				tmp->all_ants--;
-			}
-			else
-				tmp->ant_here = 0;
-			tmp = tmp->next;
-		}
+		print_last_ants(tmp,  skrr);
 		skrr->i - skrr->ants >= 0 ? ft_printf("\n") : 0;
 		(skrr->ants == 1) ? ft_printf("L1-%s ", kos->name) : 0;
 		skrr->i--;
 	}
 	ft_printf("\n");
+}
+
+void	start_end(t_neighbors *neighbors, t_skrr *skrr)
+{
+	t_neighbors *tmp;
+
+	tmp = neighbors;
+	while (tmp)
+	{
+		if (!(ft_strcmp(tmp->neighb->name, skrr->start_name)))
+			skrr->flag = 1;
+		tmp = tmp->next;
+	}
+}
+
+void	print_last_ants(t_path *tmp, t_skrr *skrr)
+{
+	while (tmp->next)
+	{
+		if (tmp->next->ant_here)
+		{
+			tmp->ant_number = (int)skrr->ants - tmp->all_ants + 1;
+			ft_printf("L%d-%s ", tmp->ant_number, tmp->name);
+			tmp->all_ants--;
+		}
+		else
+			tmp->ant_here = 0;
+		tmp = tmp->next;
+	}
 }

@@ -4,8 +4,6 @@
 #include "../libft/src/libft/libft.h"
 #include <stdio.h>
 
-int 					g_fd; // TODO delete this before finish the project!
-
 /*
 ** linked list for all neighbors in current room
 */
@@ -88,6 +86,7 @@ typedef struct		s_skrr
 	int 			i;
 	int 			n;
 	int 			index;
+	int 			flag;
 	t_room			*current;
 	t_room			*tmp;
 	t_neighbors		*neighb;
@@ -108,8 +107,8 @@ int					oops_error(void);
 int					room_info(t_skrr *skrr, t_room **room, char **line);
 int 				link_info(t_skrr *skrr, t_room **room, char **line, t_link **link);
 int					push_room(t_room **room, char **line, char c, t_skrr *skrr);
-int 				rooms_comp(t_room *room, char *line);
-int					push_link(t_link **link, char **line, char c);
+int 				rooms_comp(t_room *room, char *line, t_skrr *skrr);
+int					push_link(t_link **link, char **line, char c, t_skrr *skrr);
 int 				push_to_end(char **line);
 void				init_func(t_skrr *skrr);
 char 				*get_name(char *line, char c);
@@ -134,9 +133,8 @@ int					fck_neighbors(t_neighbors *neighbors, t_skrr *skrr, int *queue);
 int 				best_neighbors(t_path **path, t_skrr *skrr, t_room *tmp);
 void 				ants(t_path *path, t_skrr *skrr);
 void				end_way(t_path *tmp, t_path *path, t_skrr *skrr);
-
-//tmp fucntions
+void				print_last_ants(t_path *tmp, t_skrr *skrr);
+void				start_end(t_neighbors *neighbors, t_skrr *skrr);
 void				print_lists(t_info *head);
-int 				print_nei(t_room *room);
 
 #endif

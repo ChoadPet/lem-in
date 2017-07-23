@@ -1,24 +1,17 @@
-#ants
-##lol
-10
-#start command
+6
 ##start
-#comment
-##lol
-room_start 15 34
-room_2 16 7
-room_3 16 3
-room_4 16 5
-##lol
-room_5 9 3
-#end command
+start 0 1
 ##end
-##lol
-#anoother comment
-room_end 9 5
-#comment
-room_6 1 5
-room_7 4 8
-#end of file
-##lol
-room_6-room_7
+end 100 100
+0 94 66
+2 39 31
+4 35 24
+5 52 42
+4-0
+start-4
+start-2
+start-5
+start-4
+end-2
+end-5
+end-0

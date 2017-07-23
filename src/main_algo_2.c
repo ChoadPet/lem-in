@@ -41,22 +41,27 @@ int 	get_my_path(t_skrr *skrr, t_room *room, t_path **path)
 		if (!(best_neighbors(path, skrr, tmp)))
 			return (0);
 	}
-	ants(*path,skrr);
+	print_lists(g_info);
+	(skrr->ants > 0) ? ft_printf("\n") : 0;
+	(skrr->ants > 0) ? ants(*path,skrr) : 0;
 	return (1);
 }
 
 int 	best_neighbors(t_path **path, t_skrr *skrr, t_room *tmp)
 {
-	while (tmp->neighbors)
+	t_neighbors *leaks;
+
+	leaks = tmp->neighbors;
+	while (leaks)
 	{
-		if (tmp->metka - 1 == tmp->neighbors->neighb->metka)
+		if (tmp->metka - 1 == leaks->neighb->metka)
 		{
-			if (!(push_path(path, tmp->neighbors, NULL, skrr)))
+			if (!(push_path(path, leaks, NULL, skrr)))
 				return (0);
-			skrr->index = tmp->neighbors->neighb->index;
+			skrr->index = leaks->neighb->index;
 			return (1);
 		}
-		tmp->neighbors = tmp->neighbors->next;
+		leaks = leaks->next;
 	}
 	return (1);
 }
