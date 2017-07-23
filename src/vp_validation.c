@@ -18,6 +18,12 @@ int 	oops_error()
 	return (0);
 }
 
+void 	exit_error()
+{
+	ft_putstr("ERROR\n");
+	exit(0);
+}
+
 int 	two_spaces_start(t_skrr *skrr, char *line)
 {
 	int spaces;
@@ -52,18 +58,22 @@ int		what_is_next(t_skrr *skrr, char **line, int start)
 	ft_strdel(line);
 	(start) ? skrr->start++ : skrr->end++;
 	if (get_next_line(g_fd, line) > 0)
+	{
 		if (!(ft_strcmp("##end", *line)) || !(ft_strcmp("##start", *line)))
 			return (0);
+	}
+	else
+		exit_error();
 	if (!need_it(line))
 		return (0);
 	return (1);
 }
 
-int 	rooms_comp(t_room *room, char *line, t_skrr *skrr)
+int 	rooms_comp(t_room *room, char *line)
 {
 	char *tmp;
 
-	tmp = get_name(line, ' ', skrr);
+	tmp = get_name(line, ' ');
 	while (room != NULL)
 	{
 		if (!ft_strcmp(room->name, tmp))

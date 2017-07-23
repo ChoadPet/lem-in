@@ -19,7 +19,9 @@ int main()
 
 	line = NULL;
 	init_func(&skrr);
-	while (get_next_line(0, &line) > 0)
+	g_fd = open("test_3", O_RDONLY);
+	g_fd = 0;
+	while (get_next_line(g_fd, &line) > 0)
 		if (!second_main(&line, &skrr))
 			return (0);
 	if ((!skrr.start || !skrr.end) || (!skrr.found_links) || skrr.start > 1 ||

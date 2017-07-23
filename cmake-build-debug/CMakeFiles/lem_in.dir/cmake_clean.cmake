@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lem_in.dir/src/debrec.c.o"
   "CMakeFiles/lem_in.dir/src/main.c.o"
   "CMakeFiles/lem_in.dir/src/main_algo.c.o"
   "CMakeFiles/lem_in.dir/src/main_algo_2.c.o"

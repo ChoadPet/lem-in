@@ -4,6 +4,8 @@
 #include "../libft/src/libft/libft.h"
 #include <stdio.h>
 
+int 		g_fd;
+
 /*
 ** linked list for all neighbors in current room
 */
@@ -107,8 +109,8 @@ int					oops_error(void);
 int					room_info(t_skrr *skrr, t_room **room, char **line);
 int 				link_info(t_skrr *skrr, t_room **room, char **line, t_link **link);
 int					push_room(t_room **room, char **line, char c, t_skrr *skrr);
-int 				rooms_comp(t_room *room, char *line, t_skrr *skrr);
-int					push_link(t_link **link, char **line, char c, t_skrr *skrr);
+int 				rooms_comp(t_room *room, char *line);
+int					push_link(t_link **link, char **line, char c);
 int 				push_to_end(char **line);
 void				init_func(t_skrr *skrr);
 char 				*get_name(char *line, char c);

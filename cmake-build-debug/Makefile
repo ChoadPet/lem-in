@@ -1986,33 +1986,6 @@ libft/src/libft/ft_toupper.c.s:
 	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/libft/src/libft/ft_toupper.c.s
 .PHONY : libft/src/libft/ft_toupper.c.s
 
-src/debrec.o: src/debrec.c.o
-
-.PHONY : src/debrec.o
-
-# target to build an object file
-src/debrec.c.o:
-	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/debrec.c.o
-.PHONY : src/debrec.c.o
-
-src/debrec.i: src/debrec.c.i
-
-.PHONY : src/debrec.i
-
-# target to preprocess a source file
-src/debrec.c.i:
-	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/debrec.c.i
-.PHONY : src/debrec.c.i
-
-src/debrec.s: src/debrec.c.s
-
-.PHONY : src/debrec.s
-
-# target to generate assembly for a file
-src/debrec.c.s:
-	$(MAKE) -f CMakeFiles/lem_in.dir/build.make CMakeFiles/lem_in.dir/src/debrec.c.s
-.PHONY : src/debrec.c.s
-
 src/main.o: src/main.c.o
 
 .PHONY : src/main.o
@@ -2472,9 +2445,6 @@ help:
 	@echo "... libft/src/libft/ft_toupper.o"
 	@echo "... libft/src/libft/ft_toupper.i"
 	@echo "... libft/src/libft/ft_toupper.s"
-	@echo "... src/debrec.o"
-	@echo "... src/debrec.i"
-	@echo "... src/debrec.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

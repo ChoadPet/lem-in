@@ -47,10 +47,10 @@ int 	should_i(t_skrr *skrr, t_room *room, char *line)
 
 	if ((ft_strchr(line, ' ')) || (*line == 'L'))
 		return (0);
-	n1 = get_name(line, '-', skrr);
+	n1 = get_name(line, '-');
 	while (*line != '-')
 		(line)++;
-	n2 = get_name((line + 1), 0, skrr);
+	n2 = get_name((line + 1), 0);
 	skrr->name_1 = 0;
 	skrr->name_2 = 0;
 	while (room)
