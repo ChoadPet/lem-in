@@ -6,7 +6,7 @@
 /*   By: vpoltave <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 22:18:34 by vpoltave          #+#    #+#             */
-/*   Updated: 2017/03/17 14:11:31 by vpoltave         ###   ########.fr       */
+/*   Updated: 2017/07/23 20:37:39 by vpoltave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ char	**where_is_bacon(const int fd, t_bacon **bacon)
 
 void	where_is_n(char **s, char **line)
 {
-	int 	i;
-	char 	*tmp;
+	int		i;
+	char	*tmp;
 
 	i = 0;
 	tmp = *s;
@@ -82,7 +82,7 @@ int		get_next_line(const int fd, char **line)
 	char			*buff;
 	static t_bacon	*bacon;
 	char			**s;
-	int 			i;
+	int				i;
 
 	buff = ft_strnew(BUFF_SIZE);
 	if ((fd < 0) || ((read(fd, buff, 0)) < 0) || (BUFF_SIZE <= 0))

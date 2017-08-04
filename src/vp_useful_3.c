@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vp_ants.c                                          :+:      :+:    :+:   */
+/*   vp_useful_3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoltave <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/07 17:05:35 by vpoltave          #+#    #+#             */
-/*   Updated: 2017/07/07 17:05:40 by vpoltave         ###   ########.fr       */
+/*   Created: 2017/07/23 20:03:38 by vpoltave          #+#    #+#             */
+/*   Updated: 2017/07/23 20:03:57 by vpoltave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-int 	get_neighbor(t_skrr *skrr, t_room *room, t_link *link)
+int		get_neighbor(t_skrr *skrr, t_room *room, t_link *link)
 {
 	skrr->tmp = room;
 	while (room)
@@ -39,7 +39,7 @@ int 	get_neighbor(t_skrr *skrr, t_room *room, t_link *link)
 	return (1);
 }
 
-int 	push_neighbor(t_neighbors **neighbor, t_room *current)
+int		push_neighbor(t_neighbors **neighbor, t_room *current)
 {
 	t_neighbors *new_elem;
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vp_ants.c                                          :+:      :+:    :+:   */
+/*   main_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoltave <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/07 17:05:35 by vpoltave          #+#    #+#             */
-/*   Updated: 2017/07/07 17:05:40 by vpoltave         ###   ########.fr       */
+/*   Created: 2017/07/23 19:44:09 by vpoltave          #+#    #+#             */
+/*   Updated: 2017/07/23 19:44:40 by vpoltave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,12 @@ t_room	*make_start(t_room *room, t_skrr *skrr)
 	return (0);
 }
 
-
 int		bfs(t_skrr *skrr, t_room *room)
 {
-	int 	queue[skrr->vertex];
+	int		queue[skrr->vertex];
 	t_room	*head;
 	t_room	*tmp;
-	int 	d;
+	int		d;
 
 	head = room;
 	tmp = make_start(room, skrr);

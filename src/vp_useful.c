@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vp_ants.c                                          :+:      :+:    :+:   */
+/*   vp_useful.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoltave <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/07 17:05:35 by vpoltave          #+#    #+#             */
-/*   Updated: 2017/07/07 17:05:40 by vpoltave         ###   ########.fr       */
+/*   Created: 2017/07/23 20:15:44 by vpoltave          #+#    #+#             */
+/*   Updated: 2017/07/23 20:17:21 by vpoltave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-void	init_func(t_skrr *skrr)
+void		init_func(t_skrr *skrr)
 {
 	skrr->flag_an = -1;
 	skrr->counts_ants = -1;
@@ -25,11 +25,13 @@ void	init_func(t_skrr *skrr)
 	skrr->name_1 = 0;
 	skrr->name_2 = 0;
 	skrr->flag = 0;
+	skrr->wr_name = 0;
+	skrr->spaces = 0;
 	skrr->start_name = NULL;
 	skrr->end_name = NULL;
 	skrr->neighb = NULL;
-	skrr->current = NULL; // TODO can delete it later
-	skrr->tmp = NULL; // TODO can delete it later
+	skrr->current = NULL;
+	skrr->tmp = NULL;
 	skrr->link = NULL;
 	skrr->room = NULL;
 	skrr->path = NULL;
@@ -37,10 +39,10 @@ void	init_func(t_skrr *skrr)
 	skrr->vertex = 0;
 }
 
-char 	*get_link(char *line)
+char		*get_link(char *line)
 {
-	char 	*name;
-	int 	i;
+	char	*name;
+	int		i;
 
 	i = -1;
 	while ((*line) && (*line) != '-')
@@ -55,10 +57,10 @@ char 	*get_link(char *line)
 	return (name);
 }
 
-char 	*get_name(char *line, char c)
+char		*get_name(char *line, char c)
 {
 	char	*name;
-	size_t 	i;
+	size_t	i;
 
 	i = 0;
 	while (line && (*line != c))
@@ -80,6 +82,8 @@ long int	x_y_coord(char *line, int is_x)
 	{
 		while ((*line) && *line != ' ')
 			(line)++;
+		(!ft_isdigit(*(line + 1)) && ((*(line + 1) != '-'))) ? ex_error() : 0;
+		((*(line + 1) == '0' && (*(line + 2) != ' '))) ? ex_error() : 0;
 		x = ft_atoi(line);
 		return (x);
 	}
@@ -89,12 +93,13 @@ long int	x_y_coord(char *line, int is_x)
 			(line)++;
 		while (*line != ' ')
 			line--;
+		(!ft_isdigit(*(line - 1)) && ((*(line - 1) != '-'))) ? ex_error() : 0;
 		y = ft_atoi(line);
 		return (y);
 	}
 }
 
-void	print_lists(t_info *head)
+void		print_lists(t_info *head)
 {
 	t_info *current;
 
@@ -105,4 +110,3 @@ void	print_lists(t_info *head)
 		current = current->next;
 	}
 }
-

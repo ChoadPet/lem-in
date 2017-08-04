@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vp_ants.c                                          :+:      :+:    :+:   */
+/*   main_algo_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoltave <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/07 17:05:35 by vpoltave          #+#    #+#             */
-/*   Updated: 2017/07/07 17:05:40 by vpoltave         ###   ########.fr       */
+/*   Created: 2017/07/23 19:39:59 by vpoltave          #+#    #+#             */
+/*   Updated: 2017/07/23 20:40:41 by vpoltave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
-
 
 t_room	*next_neighb(int index, t_room *head)
 {
@@ -24,10 +23,10 @@ t_room	*next_neighb(int index, t_room *head)
 	return (NULL);
 }
 
-int 	get_my_path(t_skrr *skrr, t_room *room, t_path **path)
+int		get_my_path(t_skrr *skrr, t_room *room, t_path **path)
 {
-	t_room 	*head;
-	t_room 	*tmp;
+	t_room *head;
+	t_room *tmp;
 
 	head = room;
 	tmp = room;
@@ -43,11 +42,11 @@ int 	get_my_path(t_skrr *skrr, t_room *room, t_path **path)
 	}
 	print_lists(g_info);
 	(skrr->ants > 0) ? ft_printf("\n") : 0;
-	(skrr->ants > 0) ? ants(*path,skrr) : 0;
+	(skrr->ants > 0) ? ants(*path, skrr) : 0;
 	return (1);
 }
 
-int 	best_neighbors(t_path **path, t_skrr *skrr, t_room *tmp)
+int		best_neighbors(t_path **path, t_skrr *skrr, t_room *tmp)
 {
 	t_neighbors *leaks;
 
@@ -66,7 +65,8 @@ int 	best_neighbors(t_path **path, t_skrr *skrr, t_room *tmp)
 	return (1);
 }
 
-int 	push_path(t_path **path, t_neighbors *neighbors, t_room *tmp, t_skrr *skrr)
+int		push_path(t_path **path, t_neighbors *neighbors, t_room *tmp, \
+				t_skrr *skrr)
 {
 	t_path *new_path;
 	t_path *current;
@@ -89,5 +89,3 @@ int 	push_path(t_path **path, t_neighbors *neighbors, t_room *tmp, t_skrr *skrr)
 	}
 	return (1);
 }
-
-

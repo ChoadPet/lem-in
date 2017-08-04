@@ -6,13 +6,13 @@
 /*   By: vpoltave <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/07 17:05:35 by vpoltave          #+#    #+#             */
-/*   Updated: 2017/07/07 17:05:40 by vpoltave         ###   ########.fr       */
+/*   Updated: 2017/07/23 19:38:51 by vpoltave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-void 	ants(t_path *path, t_skrr *skrr)
+void	ants(t_path *path, t_skrr *skrr)
 {
 	t_path *head;
 	t_path *tmp;
@@ -44,7 +44,7 @@ void 	ants(t_path *path, t_skrr *skrr)
 void	end_way(t_path *tmp, t_path *path, t_skrr *skrr)
 {
 	t_path *kos;
-	t_room 	*curr;
+	t_room *curr;
 
 	tmp = path;
 	while (ft_strcmp(tmp->name, skrr->start_name))
@@ -55,12 +55,12 @@ void	end_way(t_path *tmp, t_path *path, t_skrr *skrr)
 		curr = curr->next;
 	start_end(curr->neighbors, skrr);
 	if (skrr->flag == 1)
-			return ;
+		return ;
 	while (skrr->i)
 	{
 		tmp = path;
 		(skrr->ants == 1) ? kos = tmp : 0;
-		print_last_ants(tmp,  skrr);
+		print_last_ants(tmp, skrr);
 		skrr->i - skrr->ants >= 0 ? ft_printf("\n") : 0;
 		(skrr->ants == 1) ? ft_printf("L1-%s ", kos->name) : 0;
 		skrr->i--;

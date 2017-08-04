@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vp_ants.c                                          :+:      :+:    :+:   */
+/*   vp_useful_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoltave <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/07 17:05:35 by vpoltave          #+#    #+#             */
-/*   Updated: 2017/07/07 17:05:40 by vpoltave         ###   ########.fr       */
+/*   Created: 2017/07/23 19:45:21 by vpoltave          #+#    #+#             */
+/*   Updated: 2017/07/23 19:46:30 by vpoltave         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-int 	need_it(char **line)
+int		need_it(char **line)
 {
 	push_to_end(line);
 	return (1);
 }
 
-
-int 	push_to_end(char **line)
+int		push_to_end(char **line)
 {
 	t_info *new_room;
 	t_info *current;
@@ -40,7 +39,7 @@ int 	push_to_end(char **line)
 	return (1);
 }
 
-int 	should_i(t_skrr *skrr, t_room *room, char *line)
+int		should_i(t_skrr *skrr, t_room *room, char *line)
 {
 	char *n1;
 	char *n2;
@@ -64,7 +63,7 @@ int 	should_i(t_skrr *skrr, t_room *room, char *line)
 	return ((skrr->name_1 && skrr->name_2) ? 1 : 0);
 }
 
-int 	found_links(t_skrr *skrr, char *line)
+int		found_links(t_skrr *skrr, char *line)
 {
 	if (*line == '#')
 		return (1);
@@ -77,7 +76,7 @@ int 	found_links(t_skrr *skrr, char *line)
 	return (skrr->found_links ? 1 : 0);
 }
 
-int 	found_room(t_skrr *skrr, char *line)
+int		found_room(t_skrr *skrr, char *line)
 {
 	skrr->found_rooms = 0;
 	if (*line == '#')
